@@ -21,8 +21,9 @@ public class Biblioteca {
 
     public void start() {
         display.display("Welcome to Biblioteca\n");
-        display.display("1. List Book\n");
+        display.display("1. List Book\n 2.Quit\n");
         Options option = parser.parse(input.read());
-        option.execute();
+        String displayMessage = option.execute();
+        display.display(displayMessage);
     }
 }

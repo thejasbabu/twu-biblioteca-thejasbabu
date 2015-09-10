@@ -1,5 +1,5 @@
+// ListBook class returns a string various book details to be printed on the screen
 package com.thoughtworks.biblioteca;
-
 
 import java.util.ArrayList;
 
