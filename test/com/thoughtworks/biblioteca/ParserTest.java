@@ -36,6 +36,16 @@ public class ParserTest {
         Library library = new Library(books);
         Parser parser = new Parser(display, library);
 
-        assertEquals(ExitOption.class, parser.parse("2").getClass());
+        assertEquals(ExitOption.class, parser.parse("3").getClass());
+    }
+
+    @Test
+    public void shouldReturnCheckOutOptionObjectWhenUserInputIsTwo() {
+        Display display = new Display(new PrintStream(System.out));
+        ArrayList<Book> books = new ArrayList<Book>();
+        Library library = new Library(books);
+        Parser parser = new Parser(display, library);
+
+        assertEquals(CheckOutOption.class, parser.parse("2").getClass());
     }
 }
