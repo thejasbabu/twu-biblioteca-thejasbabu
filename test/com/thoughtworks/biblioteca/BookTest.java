@@ -19,4 +19,12 @@ public class BookTest {
 
         assertNotEquals(book, null);
     }
+
+    @Test
+    public void shouldBeEqualsToAnotherBookWithSameName() {
+        Book bookOne = new Book("Inferno", "Dan Brown", "2001");
+        Book bookTwo = new Book("Inferno", "Dan Crown", "2008");
+
+        assertEquals(bookOne, bookTwo);
+    }
 }

@@ -18,5 +18,18 @@ public class Library {
             stringBuilder.append(book.toString());
         return stringBuilder.toString();
     }
-    
+
+    public boolean checkOut(String bookName) {
+        Book searchBook = new Book(bookName, "", "");
+        for(Book book : availableBooks)
+        {
+            if(book.equals(searchBook))
+            {
+                availableBooks.remove(book);
+                return true;
+            }
+        }
+
+        return false;
+    }
 }
