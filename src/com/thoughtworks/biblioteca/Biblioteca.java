@@ -1,3 +1,4 @@
+// Biblioteca class displays the welcome message and contains list of books
 package com.thoughtworks.biblioteca;
 
 import java.util.ArrayList;
