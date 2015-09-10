@@ -18,12 +18,22 @@ public class LibraryTest {
     }
 
     @Test
-    public void shouldReturnTrueWhenSuccesfullCheckOut() {
+    public void shouldReturnTrueWhenSuccesfulCheckOut() {
         ArrayList<Book> books = new ArrayList<Book>();
         books.add(new Book("Inferno", "Dan Brown", "2001"));
         books.add(new Book("Gone girl", "Paulino", "2009"));
         Library library = new Library(books);
 
         assertEquals(true, library.checkOut("Gone girl"));
+    }
+
+    @Test
+    public void shouldReturnFalseWhenCheckoutIsUnsuccessful() {
+        ArrayList<Book> books = new ArrayList<Book>();
+        books.add(new Book("Inferno", "Dan Brown", "2001"));
+        books.add(new Book("Gone girl", "Paulino", "2009"));
+        Library library = new Library(books);
+
+        assertEquals(false, library.checkOut("Next"));
     }
 }
