@@ -2,14 +2,19 @@ package com.thoughtworks.biblioteca;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.Assert.*;
 
 public class BibliotecaTest {
 
     @Test
-    public void shouldReturnWelcomeMessageWhenBibliotecaApplicationHasStarted() {
-        Biblioteca biblioteca = new Biblioteca();
+    public void shouldReturnWelcomeMessageAndListOfBooksWhenBibliotecaApplicationHasStarted() {
+        ArrayList<String> books = new ArrayList<String>();
+        books.add("Inferno");
+        books.add("Harry Potter");
+        Biblioteca biblioteca = new Biblioteca(books);
 
-        assertEquals("Welcome to Biblioteca\n", biblioteca.WelcomeMessage());
+        assertEquals("Welcome to Biblioteca\nInferno\nHarry Potter\n", biblioteca.display());
     }
 }
