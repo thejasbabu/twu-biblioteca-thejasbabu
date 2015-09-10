@@ -1,7 +1,7 @@
 package com.thoughtworks.biblioteca;
 
 
-public class ListBook implements Options{
+public class InvalidOption implements Options{
 
     @Override
     public String execute() {
