@@ -12,4 +12,11 @@ public class ParserTest {
 
         assertEquals(ListBook.class, parser.parse("1").getClass());
     }
+
+    @Test
+    public void shouldReturnAInvalidObjectWhenInvalidOptionIsEntered() {
+        Parser parser = new Parser();
+
+        assertEquals(InvalidOption.class, parser.parse("Biblioteca").getClass());
+    }
 }
