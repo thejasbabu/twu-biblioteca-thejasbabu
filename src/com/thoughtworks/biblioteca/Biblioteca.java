@@ -8,17 +8,18 @@ public class Biblioteca {
 
     private ArrayList<Book> books;
     private Display display;
+    private Input input;
 
-    public Biblioteca(ArrayList<Book> books, Display display) {
+    public Biblioteca(ArrayList<Book> books, Display display, Input input) {
         this.books = books;
         this.display = display;
+        this.input = input;
     }
 
     public void start() {
         StringBuilder stringBuilder = new StringBuilder();
         display.display("Welcome to Biblioteca\n");
         display.display("1. List Book\n");
-        Input input = new Input(new Scanner(System.in));
         String option = input.read();
         if(option.equals("1")) {
             stringBuilder.append("NAME\t\tAUTHOR\t\tYEAR\n");
