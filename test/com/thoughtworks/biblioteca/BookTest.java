@@ -12,4 +12,11 @@ public class BookTest {
 
         assertEquals("Inferno\t\tDan Brown\t\t2001\n", book.toString());
     }
+
+    @Test
+    public void shouldNotBeEqualToNull() {
+        Book book = new Book("Inferno", "Dan Brown", "2001");
+
+        assertNotEquals(book, null);
+    }
 }
