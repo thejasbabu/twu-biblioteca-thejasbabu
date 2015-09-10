@@ -1,6 +1,7 @@
 // Biblioteca class displays the welcome message and contains list of books
 package com.thoughtworks.biblioteca;
 
+import javax.swing.text.html.Option;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -9,25 +10,19 @@ public class Biblioteca {
     private ArrayList<Book> books;
     private Display display;
     private Input input;
+    private Parser parser;
 
-    public Biblioteca(ArrayList<Book> books, Display display, Input input) {
+    public Biblioteca(ArrayList<Book> books, Display display, Input input, Parser parser) {
         this.books = books;
         this.display = display;
         this.input = input;
+        this.parser = parser;
     }
 
     public void start() {
-        StringBuilder stringBuilder = new StringBuilder();
         display.display("Welcome to Biblioteca\n");
         display.display("1. List Book\n");
-        String option = input.read();
-        if(option.equals("1")) {
-            stringBuilder.append("NAME\t\tAUTHOR\t\tYEAR\n");
-            for(Book book : books)
-                stringBuilder.append(book.toString());
-            display.display(stringBuilder.toString());
-        }
-        else
-            display.display("Invalid Option\n");
+        Options option = parser.parse(input.read());
+        option.execute();
     }
 }
