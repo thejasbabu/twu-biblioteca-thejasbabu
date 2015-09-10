@@ -5,17 +5,18 @@ import java.util.ArrayList;
 
 public class Biblioteca {
 
-    private ArrayList<String> books;
+    private ArrayList<Book> books;
 
-    public Biblioteca(ArrayList<String> books) {
+    public Biblioteca(ArrayList<Book> books) {
         this.books = books;
     }
 
     public String display() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("Welcome to Biblioteca\n");
-        for(String bookName : books)
-            stringBuilder.append(bookName + "\n");
+        stringBuilder.append("NAME\t\tAUTHOR\t\tYEAR\n");
+        for(Book book : books)
+            stringBuilder.append(book.toString());
         return stringBuilder.toString();
     }
 }
