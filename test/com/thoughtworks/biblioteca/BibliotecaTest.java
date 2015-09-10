@@ -62,6 +62,19 @@ public class BibliotecaTest {
         verify(display).display("NAME\t\tAUTHOR\t\tYEAR\nInferno\t\tDan Brown\t\t2001\n");
     }
 
+    @Test
+    public void shouldDisplayInvalidOptionWhenUserEntersInvalidChoice() {
+        ArrayList<Book> books = new ArrayList<Book>();
+        books.add(new Book("Inferno", "Dan Brown", "2001"));
+        Display display = mock(Display.class);
+        Input input = mock(Input.class);
+        Biblioteca biblioteca = new Biblioteca(books, display, input);
+        when(input.read()).thenReturn("Biblioteca");
+        biblioteca.start();
+
+        verify(display).display("Invalid Option\n");
+    }
+
     @After
     public void cleanUp() {
         System.setIn(System.in);

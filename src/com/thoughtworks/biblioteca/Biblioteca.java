@@ -28,6 +28,6 @@ public class Biblioteca {
             display.display(stringBuilder.toString());
         }
         else
-            display.display("");
+            display.display("Invalid Option\n");
     }
 }
