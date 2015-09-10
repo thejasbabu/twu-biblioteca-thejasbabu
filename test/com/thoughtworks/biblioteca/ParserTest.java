@@ -26,4 +26,13 @@ public class ParserTest {
 
         assertEquals(InvalidOption.class, parser.parse("Biblioteca").getClass());
     }
+
+    @Test
+    public void shouldReturnExitOptionObjectWhenExitOptionIsSelected() {
+        Display display = new Display(new PrintStream(System.out));
+        ArrayList<Book> books = new ArrayList<Book>();
+        Parser parser = new Parser(display, books);
+
+        assertEquals(ExitOption.class, parser.parse("2").getClass());
+    }
 }

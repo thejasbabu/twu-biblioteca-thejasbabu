@@ -48,7 +48,7 @@ public class BibliotecaTest {
         when(input.read()).thenReturn("1");
         biblioteca.start();
 
-        verify(display).display("1. List Book\n");
+        verify(display).display("1. List Book\n 2.Quit\n");
     }
 
     @Test
@@ -83,6 +83,21 @@ public class BibliotecaTest {
         verify(invalidOption).execute();
     }
 
+    @Test
+    public void shouldExitFromTheApplicationWhenExitOptionIsSelected() {
+        ArrayList<Book> books = new ArrayList<Book>();
+        books.add(new Book("Inferno", "Dan Brown", "2001"));
+        Display display = mock(Display.class);
+        Input input = mock(Input.class);
+        Parser parser = mock(Parser.class);
+        ExitOption exitOption = mock(ExitOption.class);
+        Biblioteca biblioteca = new Biblioteca(books, display, input, parser);
+        when(input.read()).thenReturn("2");
+        when(parser.parse("2")).thenReturn(exitOption);
+        biblioteca.start();
+
+        verify(exitOption).execute();
+    }
     @After
     public void cleanUp() {
         System.setIn(System.in);
