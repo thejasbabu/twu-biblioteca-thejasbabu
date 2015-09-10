@@ -7,19 +7,26 @@ import java.util.Scanner;
 public class Biblioteca {
 
     private ArrayList<Book> books;
+    private Display display;
 
-    public Biblioteca(ArrayList<Book> books) {
+    public Biblioteca(ArrayList<Book> books, Display display) {
         this.books = books;
+        this.display = display;
     }
 
-    public String display() {
+    public void start() {
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("Welcome to Biblioteca\n");
+        display.display("Welcome to Biblioteca\n");
+        display.display("1. List Book\n");
         Input input = new Input(new Scanner(System.in));
         String option = input.read();
-        stringBuilder.append("NAME\t\tAUTHOR\t\tYEAR\n");
-        for(Book book : books)
-            stringBuilder.append(book.toString());
-        return stringBuilder.toString();
+        if(option.equals("1")) {
+            stringBuilder.append("NAME\t\tAUTHOR\t\tYEAR\n");
+            for(Book book : books)
+                stringBuilder.append(book.toString());
+            display.display(stringBuilder.toString());
+        }
+        else
+            display.display("");
     }
 }

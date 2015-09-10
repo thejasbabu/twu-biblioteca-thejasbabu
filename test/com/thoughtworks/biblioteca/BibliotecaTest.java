@@ -1,20 +1,35 @@
 package com.thoughtworks.biblioteca;
 
+import org.junit.Before;
 import org.junit.Test;
 
+import java.io.ByteArrayInputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
 
-import static org.junit.Assert.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
 
 public class BibliotecaTest {
+    String userChoice = "1";
+    final ByteArrayInputStream inContent = new ByteArrayInputStream(userChoice.getBytes());
 
+    @Before
+    public void setUp() {
+        System.setIn(inContent);
+    }
     @Test
     public void shouldReturnWelcomeMessageAndListOfBooksWhenBibliotecaApplicationHasStarted() {
         ArrayList<Book> books = new ArrayList<Book>();
         books.add(new Book("Inferno", "Dan Brown", "2001"));
         books.add(new Book("Harry Potter", "JK Rowling", "2005"));
-        Biblioteca biblioteca = new Biblioteca(books);
+        Display display = mock(Display.class);
+        Biblioteca biblioteca = new Biblioteca(books, display);
 
-        assertEquals("Welcome to Biblioteca\nNAME\t\tAUTHOR\t\tYEAR\nInferno\t\tDan Brown\t\t2001\nHarry Potter\t\tJK Rowling\t\t2005\n", biblioteca.display());
+        biblioteca.start();
+
+        verify(display).display("Welcome to Biblioteca\n");
     }
 }
