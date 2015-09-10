@@ -6,16 +6,16 @@ import java.util.ArrayList;
 public class Parser {
 
     private Display display;
-    private ArrayList<Book> books;
+    private Library library;
 
-    public Parser(Display display, ArrayList<Book> books) {
+    public Parser(Display display, Library library) {
         this.display = display;
-        this.books = books;
+        this.library = library;
     }
 
     public Options parse(String option) {
         if(option.equals("1"))
-            return new ListBook(display, books);
+            return new ListBook(display, library);
         else if(option.equals("2"))
             return new ExitOption();
         else

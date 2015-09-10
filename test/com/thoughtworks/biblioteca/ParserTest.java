@@ -13,7 +13,8 @@ public class ParserTest {
     public void shouldReturnAListBookObjectWhenOptionIsOne() {
         Display display = new Display(new PrintStream(System.out));
         ArrayList<Book> books = new ArrayList<Book>();
-        Parser parser = new Parser(display, books);
+        Library library = new Library(books);
+        Parser parser = new Parser(display, library);
 
         assertEquals(ListBook.class, parser.parse("1").getClass());
     }
@@ -22,7 +23,8 @@ public class ParserTest {
     public void shouldReturnAInvalidObjectWhenInvalidOptionIsEntered() {
         Display display = new Display(new PrintStream(System.out));
         ArrayList<Book> books = new ArrayList<Book>();
-        Parser parser = new Parser(display, books);
+        Library library = new Library(books);
+        Parser parser = new Parser(display, library);
 
         assertEquals(InvalidOption.class, parser.parse("Biblioteca").getClass());
     }
@@ -31,7 +33,8 @@ public class ParserTest {
     public void shouldReturnExitOptionObjectWhenExitOptionIsSelected() {
         Display display = new Display(new PrintStream(System.out));
         ArrayList<Book> books = new ArrayList<Book>();
-        Parser parser = new Parser(display, books);
+        Library library = new Library(books);
+        Parser parser = new Parser(display, library);
 
         assertEquals(ExitOption.class, parser.parse("2").getClass());
     }

@@ -26,10 +26,11 @@ public class BibliotecaTest {
         ArrayList<Book> books = new ArrayList<Book>();
         books.add(new Book("Inferno", "Dan Brown", "2001"));
         books.add(new Book("Harry Potter", "JK Rowling", "2005"));
+        Library library = new Library(books);
         Display display = mock(Display.class);
         Input input = new Input(new Scanner(System.in));
-        Parser parser = new Parser(display, books);
-        Biblioteca biblioteca = new Biblioteca(books, display, input, parser);
+        Parser parser = new Parser(display, library);
+        Biblioteca biblioteca = new Biblioteca(library, display, input, parser);
 
         biblioteca.start();
 
@@ -41,10 +42,11 @@ public class BibliotecaTest {
         ArrayList<Book> books = new ArrayList<Book>();
         books.add(new Book("Inferno", "Dan Brown", "2001"));
         books.add(new Book("Harry Potter", "JK Rowling", "2005"));
+        Library library = new Library(books);
         Display display = mock(Display.class);
         Input input = mock(Input.class);
-        Parser parser = new Parser(display, books);
-        Biblioteca biblioteca = new Biblioteca(books, display, input, parser);
+        Parser parser = new Parser(display, library);
+        Biblioteca biblioteca = new Biblioteca(library, display, input, parser);
         when(input.read()).thenReturn("1");
         biblioteca.start();
 
@@ -55,11 +57,12 @@ public class BibliotecaTest {
     public void shouldDisplayListOfBooksWhenUserEntersOptionOne() {
         ArrayList<Book> books = new ArrayList<Book>();
         books.add(new Book("Inferno", "Dan Brown", "2001"));
+        Library library = new Library(books);
         Display display = mock(Display.class);
         Input input = mock(Input.class);
         Parser parser = mock(Parser.class);
         ListBook listBook = mock(ListBook.class);
-        Biblioteca biblioteca = new Biblioteca(books, display, input, parser);
+        Biblioteca biblioteca = new Biblioteca(library, display, input, parser);
         when(input.read()).thenReturn("1");
         when(parser.parse("1")).thenReturn(listBook);
         biblioteca.start();
@@ -71,11 +74,12 @@ public class BibliotecaTest {
     public void shouldDisplayInvalidOptionWhenUserEntersInvalidChoice() {
         ArrayList<Book> books = new ArrayList<Book>();
         books.add(new Book("Inferno", "Dan Brown", "2001"));
+        Library library = new Library(books);
         Display display = mock(Display.class);
         Input input = mock(Input.class);
         Parser parser = mock(Parser.class);
         InvalidOption invalidOption = mock(InvalidOption.class);
-        Biblioteca biblioteca = new Biblioteca(books, display, input, parser);
+        Biblioteca biblioteca = new Biblioteca(library, display, input, parser);
         when(input.read()).thenReturn("Biblioteca");
         when(parser.parse("Biblioteca")).thenReturn(invalidOption);
         biblioteca.start();
@@ -87,11 +91,12 @@ public class BibliotecaTest {
     public void shouldExitFromTheApplicationWhenExitOptionIsSelected() {
         ArrayList<Book> books = new ArrayList<Book>();
         books.add(new Book("Inferno", "Dan Brown", "2001"));
+        Library library = new Library(books);
         Display display = mock(Display.class);
         Input input = mock(Input.class);
         Parser parser = mock(Parser.class);
         ExitOption exitOption = mock(ExitOption.class);
-        Biblioteca biblioteca = new Biblioteca(books, display, input, parser);
+        Biblioteca biblioteca = new Biblioteca(library, display, input, parser);
         when(input.read()).thenReturn("2");
         when(parser.parse("2")).thenReturn(exitOption);
         biblioteca.start();

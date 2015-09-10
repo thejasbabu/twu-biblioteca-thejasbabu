@@ -14,7 +14,8 @@ public class ListBookTest {
         Display display = new Display(new PrintStream(System.out));
         ArrayList<Book> books = new ArrayList<Book>();
         books.add(new Book("Inferno", "Dan Brown", "2001"));
-        ListBook listBook = new ListBook(display, books);
+        Library library = new Library(books);
+        ListBook listBook = new ListBook(display, library);
 
         assertEquals("NAME\t\tAUTHOR\t\tYEAR\nInferno\t\tDan Brown\t\t2001\n", listBook.execute());
     }

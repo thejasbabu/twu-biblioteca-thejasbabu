@@ -7,13 +7,13 @@ import java.util.Scanner;
 
 public class Biblioteca {
 
-    private ArrayList<Book> books;
+    private Library library;
     private Display display;
     private Input input;
     private Parser parser;
 
-    public Biblioteca(ArrayList<Book> books, Display display, Input input, Parser parser) {
-        this.books = books;
+    public Biblioteca(Library library, Display display, Input input, Parser parser) {
+        this.library = library;
         this.display = display;
         this.input = input;
         this.parser = parser;
