@@ -19,7 +19,7 @@ public class Biblioteca {
 
     public void start() {
         display.display("Welcome to Biblioteca\n");
-        display.display("1. List Book\n 2. Checkout Book\n 3.Quit\n");
+        display.display("1. List Book\n 2. Checkout Book\n 3. Checkin Book\n 4. Exit\n");
         Options option = parser.parse(input.read());
         String displayMessage = option.execute();
         display.display(displayMessage);

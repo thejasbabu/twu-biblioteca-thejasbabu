@@ -49,7 +49,7 @@ public class BibliotecaTest {
         when(input.read()).thenReturn("1");
         biblioteca.start();
 
-        verify(display).display("1. List Book\n 2. Checkout Book\n 3.Quit\n");
+        verify(display).display("1. List Book\n 2. Checkout Book\n 3. Checkin Book\n 4. Exit\n");
     }
 
     @Test
@@ -96,8 +96,8 @@ public class BibliotecaTest {
         Parser parser = mock(Parser.class);
         ExitOption exitOption = mock(ExitOption.class);
         Biblioteca biblioteca = new Biblioteca(display, input, parser);
-        when(input.read()).thenReturn("3");
-        when(parser.parse("3")).thenReturn(exitOption);
+        when(input.read()).thenReturn("4");
+        when(parser.parse("4")).thenReturn(exitOption);
         biblioteca.start();
 
         verify(exitOption).execute();
@@ -118,6 +118,23 @@ public class BibliotecaTest {
         biblioteca.start();
 
         verify(checkOutOption).execute();
+    }
+
+    @Test
+    public void shouldExecuteCheckInOptionWhenUserEntersThreeAsTheirChoice() {
+        ArrayList<Book> books = new ArrayList<Book>();
+        books.add(new Book("Inferno", "Dan Brown", "2001"));
+        Library library = new Library(books);
+        Display display = mock(Display.class);
+        Input input = mock(Input.class);
+        Parser parser = mock(Parser.class);
+        CheckInOption checkInOption = mock(CheckInOption.class);
+        Biblioteca biblioteca = new Biblioteca(display, input, parser);
+        when(input.read()).thenReturn("3");
+        when(parser.parse("3")).thenReturn(checkInOption);
+        biblioteca.start();
+
+        verify(checkInOption).execute();
     }
     @After
     public void cleanUp() {
