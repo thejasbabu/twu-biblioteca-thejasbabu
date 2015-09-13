@@ -5,9 +5,11 @@ import java.util.ArrayList;
 
 public class Library {
     private ArrayList<Book> availableBooks;
+    private ArrayList<Book> checkedOutBooks;
 
     public Library(ArrayList<Book> availableBooks) {
         this.availableBooks = availableBooks;
+        checkedOutBooks = new ArrayList<Book>();
     }
 
     @Override
@@ -21,11 +23,23 @@ public class Library {
 
     public boolean checkOut(String bookName) {
         Book searchBook = new Book(bookName, "", "");
-        for(Book book : availableBooks)
-        {
+        for(Book book : availableBooks) {
             if(book.equals(searchBook))
             {
                 availableBooks.remove(book);
+                checkedOutBooks.add(book);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean checkIn(String bookName) {
+        Book searchBook = new Book(bookName, "", "");
+        for(Book book : checkedOutBooks) {
+            if(book.equals(searchBook)){
+                checkedOutBooks.remove(book);
+                availableBooks.add(book);
                 return true;
             }
         }
