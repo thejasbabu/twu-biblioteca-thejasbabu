@@ -2,9 +2,24 @@
 package com.thoughtworks.biblioteca;
 
 public class CheckInOption implements Options{
+    private Display display;
+    private Input input;
+    private Library library;
+
+    public CheckInOption(Display display, Input input, Library library) {
+        this.display = display;
+        this.input = input;
+        this.library = library;
+    }
 
     @Override
     public String execute() {
-        return null;
+        String enterNameMessage = "Enter the name of the book you want to return\n";
+        display.display(enterNameMessage);
+        String bookName = input.read();
+        if (library.checkIn(bookName))
+            return "Thank you for returning your book\n";
+        else
+            return "This is not a valid book to return\n";
     }
 }
