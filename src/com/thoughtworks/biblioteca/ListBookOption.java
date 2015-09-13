@@ -3,12 +3,12 @@ package com.thoughtworks.biblioteca;
 
 import java.util.ArrayList;
 
-public class ListBook implements Options{
+public class ListBookOption implements Options{
 
     private Display display;
     private Library library;
 
-    public ListBook(Display display, Library library) {
+    public ListBookOption(Display display, Library library) {
         this.display = display;
         this.library = library;
     }

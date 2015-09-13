@@ -5,7 +5,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.ByteArrayInputStream;
-import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -61,13 +60,13 @@ public class BibliotecaTest {
         Display display = mock(Display.class);
         Input input = mock(Input.class);
         Parser parser = mock(Parser.class);
-        ListBook listBook = mock(ListBook.class);
+        ListBookOption listBookOption = mock(ListBookOption.class);
         Biblioteca biblioteca = new Biblioteca(display, input, parser);
         when(input.read()).thenReturn("1");
-        when(parser.parse("1")).thenReturn(listBook);
+        when(parser.parse("1")).thenReturn(listBookOption);
         biblioteca.start();
 
-        verify(listBook).execute();
+        verify(listBookOption).execute();
     }
 
     @Test

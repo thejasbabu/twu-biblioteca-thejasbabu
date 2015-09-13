@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 import static org.junit.Assert.*;
 
-public class ListBookTest {
+public class ListBookOptionTest {
 
     @Test
     public void shouldReturnListOfBooksWhenExecuteIsCalled() {
@@ -15,8 +15,8 @@ public class ListBookTest {
         ArrayList<Book> books = new ArrayList<Book>();
         books.add(new Book("Inferno", "Dan Brown", "2001"));
         Library library = new Library(books);
-        ListBook listBook = new ListBook(display, library);
+        ListBookOption listBookOption = new ListBookOption(display, library);
 
-        assertEquals("NAME\t\tAUTHOR\t\tYEAR\nInferno\t\tDan Brown\t\t2001\n", listBook.execute());
+        assertEquals("NAME\t\tAUTHOR\t\tYEAR\nInferno\t\tDan Brown\t\t2001\n", listBookOption.execute());
     }
 }

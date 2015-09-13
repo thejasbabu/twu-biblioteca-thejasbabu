@@ -1,6 +1,5 @@
 // Parser parses the input which is given by th user to create the appropriate object
 package com.thoughtworks.biblioteca;
-import java.util.ArrayList;
 
 public class Parser {
 
@@ -16,7 +15,7 @@ public class Parser {
 
     public Options parse(String option) {
         if(option.equals("1"))
-            return new ListBook(display, library);
+            return new ListBookOption(display, library);
         else if(option.equals("2"))
             return new CheckOutOption(display, input, library);
         else if(option.equals("3"))

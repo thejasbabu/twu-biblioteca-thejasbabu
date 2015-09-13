@@ -18,7 +18,7 @@ public class ParserTest {
         Input input = new Input(new Scanner(System.in));
         Parser parser = new Parser(display, library, input);
 
-        assertEquals(ListBook.class, parser.parse("1").getClass());
+        assertEquals(ListBookOption.class, parser.parse("1").getClass());
     }
 
     @Test
