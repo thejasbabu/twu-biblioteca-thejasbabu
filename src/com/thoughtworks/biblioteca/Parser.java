@@ -19,6 +19,8 @@ public class Parser {
         else if(option.equals("2"))
             return new CheckOutOption(display, input, library);
         else if(option.equals("3"))
+            return new CheckInOption(display, input, library);
+        else if(option.equals("4"))
             return new ExitOption();
         else
             return new InvalidOption();

@@ -40,7 +40,7 @@ public class ParserTest {
         Input input = new Input(new Scanner(System.in));
         Parser parser = new Parser(display, library, input);
 
-        assertEquals(ExitOption.class, parser.parse("3").getClass());
+        assertEquals(ExitOption.class, parser.parse("4").getClass());
     }
 
     @Test
@@ -52,5 +52,16 @@ public class ParserTest {
         Parser parser = new Parser(display, library, input);
 
         assertEquals(CheckOutOption.class, parser.parse("2").getClass());
+    }
+
+    @Test
+    public void shouldReturnCheckInObjectWhenUserInputIsThree() {
+        Display display = new Display(new PrintStream(System.out));
+        ArrayList<Book> books = new ArrayList<Book>();
+        Library library = new Library(books);
+        Input input = new Input(new Scanner(System.in));
+        Parser parser = new Parser(display, library, input);
+
+        assertEquals(CheckInOption.class, parser.parse("3").getClass());
     }
 }
