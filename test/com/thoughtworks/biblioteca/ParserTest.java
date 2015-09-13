@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import static org.junit.Assert.*;
 
@@ -14,7 +15,8 @@ public class ParserTest {
         Display display = new Display(new PrintStream(System.out));
         ArrayList<Book> books = new ArrayList<Book>();
         Library library = new Library(books);
-        Parser parser = new Parser(display, library);
+        Input input = new Input(new Scanner(System.in));
+        Parser parser = new Parser(display, library, input);
 
         assertEquals(ListBook.class, parser.parse("1").getClass());
     }
@@ -24,7 +26,8 @@ public class ParserTest {
         Display display = new Display(new PrintStream(System.out));
         ArrayList<Book> books = new ArrayList<Book>();
         Library library = new Library(books);
-        Parser parser = new Parser(display, library);
+        Input input = new Input(new Scanner(System.in));
+        Parser parser = new Parser(display, library, input);
 
         assertEquals(InvalidOption.class, parser.parse("Biblioteca").getClass());
     }
@@ -34,7 +37,8 @@ public class ParserTest {
         Display display = new Display(new PrintStream(System.out));
         ArrayList<Book> books = new ArrayList<Book>();
         Library library = new Library(books);
-        Parser parser = new Parser(display, library);
+        Input input = new Input(new Scanner(System.in));
+        Parser parser = new Parser(display, library, input);
 
         assertEquals(ExitOption.class, parser.parse("3").getClass());
     }
@@ -44,7 +48,8 @@ public class ParserTest {
         Display display = new Display(new PrintStream(System.out));
         ArrayList<Book> books = new ArrayList<Book>();
         Library library = new Library(books);
-        Parser parser = new Parser(display, library);
+        Input input = new Input(new Scanner(System.in));
+        Parser parser = new Parser(display, library, input);
 
         assertEquals(CheckOutOption.class, parser.parse("2").getClass());
     }

@@ -7,13 +7,11 @@ import java.util.Scanner;
 
 public class Biblioteca {
 
-    private Library library;
     private Display display;
     private Input input;
     private Parser parser;
 
-    public Biblioteca(Library library, Display display, Input input, Parser parser) {
-        this.library = library;
+    public Biblioteca(Display display, Input input, Parser parser) {
         this.display = display;
         this.input = input;
         this.parser = parser;
@@ -21,7 +19,7 @@ public class Biblioteca {
 
     public void start() {
         display.display("Welcome to Biblioteca\n");
-        display.display("1. List Book\n 2.Quit\n");
+        display.display("1. List Book\n 2. Checkout Book\n 3.Quit\n");
         Options option = parser.parse(input.read());
         String displayMessage = option.execute();
         display.display(displayMessage);
