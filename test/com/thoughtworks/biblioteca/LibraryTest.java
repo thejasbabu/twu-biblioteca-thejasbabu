@@ -48,4 +48,14 @@ public class LibraryTest {
 
         assertEquals(true, library.checkIn("Inferno"));
     }
+
+    @Test
+    public void shouldReturnFalseWhenCheckInIsNotSuccessful() {
+        ArrayList<Book> books = new ArrayList<Book>();
+        books.add(new Book("Inferno", "Dan Brown", "2001"));
+        books.add(new Book("Next", "M.Crichton", "2009"));
+        Library library = new Library(books);
+
+        assertNotEquals(true, library.checkIn("Inferno"));
+    }
 }
