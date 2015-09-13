@@ -1,6 +1,5 @@
 // Parser parses the input which is given by th user to create the appropriate object
 package com.thoughtworks.biblioteca;
-// Refactor the parser, just added input to constructor. Then go to checkoutoptiontest for specs
 import java.util.ArrayList;
 
 public class Parser {
