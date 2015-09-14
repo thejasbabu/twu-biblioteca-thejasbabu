@@ -20,6 +20,8 @@ public class Demo {
         menuItems.add("2. Checkout Book");
         menuItems.add("3. Checkin Book");
         menuItems.add("4. Exit");
+        menuItems.add("5. List Movie");
+
         Menu menu = new Menu(menuItems);
         Library library = new Library(books, movies);
         Parser parser = new Parser(display, library, input);
