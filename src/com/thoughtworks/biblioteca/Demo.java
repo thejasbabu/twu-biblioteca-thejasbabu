@@ -14,9 +14,15 @@ public class Demo {
         books.add(new Book("Inferno", "Dan Brown", "2001"));
         books.add(new Book("Next", "M. Crichton", "2005"));
         books.add(new Book("Harry Potter", "JK Rowling", "2004"));
+        ArrayList<String> menuItems = new ArrayList<String>();
+        menuItems.add("1. List Book");
+        menuItems.add("2. Checkout Book");
+        menuItems.add("3. Checkin Book");
+        menuItems.add("4. Exit");
+        Menu menu = new Menu(menuItems);
         Library library = new Library(books);
         Parser parser = new Parser(display, library, input);
-        Biblioteca biblioteca = new Biblioteca(display, input, parser);
+        Biblioteca biblioteca = new Biblioteca(display, input, parser, menu);
         biblioteca.start();
     }
 }

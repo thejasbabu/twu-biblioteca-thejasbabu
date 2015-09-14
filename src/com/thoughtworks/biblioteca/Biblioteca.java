@@ -6,17 +6,19 @@ public class Biblioteca {
     private Display display;
     private Input input;
     private Parser parser;
+    private Menu menu;
 
-    public Biblioteca(Display display, Input input, Parser parser) {
+    public Biblioteca(Display display, Input input, Parser parser, Menu menu) {
         this.display = display;
         this.input = input;
         this.parser = parser;
+        this.menu = menu;
     }
 
     public void start() {
         display.display("Welcome to Biblioteca\n");
        while(true) {
-            display.display("1. List Book\n2. Checkout Book\n3. Checkin Book\n4. Exit\n");
+            display.display(menu.toString());
             Options option = parser.parse(input.read());
             String displayMessage = option.execute();
             display.display(displayMessage);
