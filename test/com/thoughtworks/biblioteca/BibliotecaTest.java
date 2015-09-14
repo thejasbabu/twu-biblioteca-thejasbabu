@@ -14,97 +14,48 @@ import static org.mockito.Mockito.*;
 
 
 public class BibliotecaTest {
-    @Rule
-    public final ExpectedSystemExit exit = ExpectedSystemExit.none();
 
-
-    @Test
-    public void shouldReturnWelcomeMessageWhenBibliotecaApplicationHasStarted() {
-        ArrayList<Book> books = new ArrayList<Book>();
-        books.add(new Book("Inferno", "Dan Brown", "2001"));
-        books.add(new Book("Harry Potter", "JK Rowling", "2005"));
-        ArrayList<String> menuItems = new ArrayList<String>();
-        menuItems.add("1. List Book");
-        menuItems.add("2. Checkout Book");
-        menuItems.add("3. Checkin Book");
-        menuItems.add("4. Exit");
-        Menu menu = new Menu(menuItems);
-        Library library = new Library(books);
-        Display display = mock(Display.class);
-        Input input = mock(Input.class);
-        Parser parser = mock(Parser.class);
-        ExitOption exitOption = mock(ExitOption.class);
-        Biblioteca biblioteca = new Biblioteca(display, input, parser, menu);
-        when(input.read()).thenReturn("4");
-        when(parser.parse("4")).thenReturn(exitOption);
-        biblioteca.start();
-
-        verify(display).display("Welcome to Biblioteca\n");
-    }
 
     @Test
     public void shouldDisplayMenuOptionsAlongWithWelcomeMessage() {
-        ArrayList<Book> books = new ArrayList<Book>();
-        books.add(new Book("Inferno", "Dan Brown", "2001"));
-        books.add(new Book("Harry Potter", "JK Rowling", "2005"));
-        ArrayList<String> menuItems = new ArrayList<String>();
-        menuItems.add("1. List Book");
-        menuItems.add("2. Checkout Book");
-        menuItems.add("3. Checkin Book");
-        menuItems.add("4. Exit");
-        Menu menu = new Menu(menuItems);
-        Library library = new Library(books);
+        Menu menu = mock(Menu.class);
         Display display = mock(Display.class);
         Input input = mock(Input.class);
         Parser parser = mock(Parser.class);
-        ExitOption exitOption = mock(ExitOption.class);
         ListBookOption listBookOption = mock(ListBookOption.class);
         Biblioteca biblioteca = new Biblioteca(display, input, parser, menu);
-        when(input.read()).thenReturn("1", "4");
+        when(menu.toString()).thenReturn("Menu Called");
+        when(input.read()).thenReturn("1");
         when(parser.parse("1")).thenReturn(listBookOption);
         when(listBookOption.execute()).thenReturn("listBookOption Called");
-        when(parser.parse("4")).thenReturn(exitOption);
 
-        exit.expectSystemExitWithStatus(0);
-        biblioteca.start();
+        biblioteca.run();
 
-        verify(display).display("listBookOption Called");
+        verify(display).display("Menu Called");
     }
 
     @Test
     public void shouldDisplayListOfBooksWhenUserEntersOptionOne() {
-        ArrayList<Book> books = new ArrayList<Book>();
-        books.add(new Book("Inferno", "Dan Brown", "2001"));
-        ArrayList<String> menuItems = new ArrayList<String>();
-        menuItems.add("1. List Book");
-        menuItems.add("2. Checkout Book");
-        menuItems.add("3. Checkin Book");
-        menuItems.add("4. Exit");
-        Menu menu = new Menu(menuItems);
-        Library library = new Library(books);
+        Menu menu = mock(Menu.class);
         Display display = mock(Display.class);
         Input input = mock(Input.class);
         Parser parser = mock(Parser.class);
         ListBookOption listBookOption = mock(ListBookOption.class);
-        Biblioteca biblioteca = new Biblioteca(display, input, parser,menu);
+
+        Biblioteca biblioteca = new Biblioteca(display, input, parser, menu);
         when(input.read()).thenReturn("1");
         when(parser.parse("1")).thenReturn(listBookOption);
-        biblioteca.start();
+        when(listBookOption.execute()).thenReturn("List Book Option");
 
-        verify(listBookOption).execute();
+        biblioteca.run();
+
+        verify(display).display("List Book Option");
     }
+
 
     @Test
     public void shouldDisplayInvalidOptionWhenUserEntersInvalidChoice() {
-        ArrayList<Book> books = new ArrayList<Book>();
-        books.add(new Book("Inferno", "Dan Brown", "2001"));
-        ArrayList<String> menuItems = new ArrayList<String>();
-        menuItems.add("1. List Book");
-        menuItems.add("2. Checkout Book");
-        menuItems.add("3. Checkin Book");
-        menuItems.add("4. Exit");
-        Menu menu = new Menu(menuItems);
-        Library library = new Library(books);
+        Menu menu = mock(Menu.class);
         Display display = mock(Display.class);
         Input input = mock(Input.class);
         Parser parser = mock(Parser.class);
@@ -112,22 +63,14 @@ public class BibliotecaTest {
         Biblioteca biblioteca = new Biblioteca(display, input, parser,menu);
         when(input.read()).thenReturn("Biblioteca");
         when(parser.parse("Biblioteca")).thenReturn(invalidOption);
-        biblioteca.start();
+        biblioteca.run();
 
         verify(invalidOption).execute();
     }
 
     @Test
     public void shouldExitFromTheApplicationWhenExitOptionIsSelected() {
-        ArrayList<Book> books = new ArrayList<Book>();
-        books.add(new Book("Inferno", "Dan Brown", "2001"));
-        ArrayList<String> menuItems = new ArrayList<String>();
-        menuItems.add("1. List Book");
-        menuItems.add("2. Checkout Book");
-        menuItems.add("3. Checkin Book");
-        menuItems.add("4. Exit");
-        Menu menu = new Menu(menuItems);
-        Library library = new Library(books);
+        Menu menu = mock(Menu.class);
         Display display = mock(Display.class);
         Input input = mock(Input.class);
         Parser parser = mock(Parser.class);
@@ -135,22 +78,14 @@ public class BibliotecaTest {
         Biblioteca biblioteca = new Biblioteca(display, input, parser, menu);
         when(input.read()).thenReturn("4");
         when(parser.parse("4")).thenReturn(exitOption);
-        biblioteca.start();
 
+        biblioteca.run();
         verify(exitOption).execute();
     }
 
     @Test
     public void shouldExecuteCheckOutOptionWhenUserEntersTwoAsTheirChoice() {
-        ArrayList<Book> books = new ArrayList<Book>();
-        books.add(new Book("Inferno", "Dan Brown", "2001"));
-        ArrayList<String> menuItems = new ArrayList<String>();
-        menuItems.add("1. List Book");
-        menuItems.add("2. Checkout Book");
-        menuItems.add("3. Checkin Book");
-        menuItems.add("4. Exit");
-        Menu menu = new Menu(menuItems);
-        Library library = new Library(books);
+        Menu menu = mock(Menu.class);
         Display display = mock(Display.class);
         Input input = mock(Input.class);
         Parser parser = mock(Parser.class);
@@ -158,22 +93,14 @@ public class BibliotecaTest {
         Biblioteca biblioteca = new Biblioteca(display, input, parser,menu);
         when(input.read()).thenReturn("2");
         when(parser.parse("2")).thenReturn(checkOutOption);
-        biblioteca.start();
+        biblioteca.run();
 
         verify(checkOutOption).execute();
     }
 
     @Test
     public void shouldExecuteCheckInOptionWhenUserEntersThreeAsTheirChoice() {
-        ArrayList<Book> books = new ArrayList<Book>();
-        books.add(new Book("Inferno", "Dan Brown", "2001"));
-        ArrayList<String> menuItems = new ArrayList<String>();
-        menuItems.add("1. List Book");
-        menuItems.add("2. Checkout Book");
-        menuItems.add("3. Checkin Book");
-        menuItems.add("4. Exit");
-        Menu menu = new Menu(menuItems);
-        Library library = new Library(books);
+        Menu menu = mock(Menu.class);
         Display display = mock(Display.class);
         Input input = mock(Input.class);
         Parser parser = mock(Parser.class);
@@ -181,7 +108,7 @@ public class BibliotecaTest {
         Biblioteca biblioteca = new Biblioteca(display, input, parser, menu);
         when(input.read()).thenReturn("3");
         when(parser.parse("3")).thenReturn(checkInOption);
-        biblioteca.start();
+        biblioteca.run();
 
         verify(checkInOption).execute();
     }

@@ -6,6 +6,6 @@ public class ExitOption implements Options {
     @Override
     public String execute() {
         System.exit(0);
-        return "";
+        return "EXIT";
     }
 }

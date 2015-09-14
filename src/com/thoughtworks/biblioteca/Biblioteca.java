@@ -17,11 +17,15 @@ public class Biblioteca {
 
     public void start() {
         display.display("Welcome to Biblioteca\n");
-       while(true) {
-            display.display(menu.toString());
-            Options option = parser.parse(input.read());
-            String displayMessage = option.execute();
-            display.display(displayMessage);
+        while(true) {
+            run();
         }
+    }
+
+    public void run() {
+        display.display(menu.toString());
+        Options option = parser.parse(input.read());
+        String displayMessage = option.execute();
+        display.display(displayMessage);
     }
 }
