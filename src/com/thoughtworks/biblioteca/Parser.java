@@ -24,6 +24,8 @@ public class Parser {
             return new ExitOption();
         else if(option.equals("5"))
             return new MovieListOption(library);
+        else if(option.equals("6"))
+            return new CheckOutMovieOption(library, input, display);
         else
             return new InvalidOption();
     }

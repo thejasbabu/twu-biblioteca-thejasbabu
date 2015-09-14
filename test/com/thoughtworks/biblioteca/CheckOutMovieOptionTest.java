@@ -34,6 +34,5 @@ public class CheckOutMovieOptionTest {
         when(library.checkOutMovie("Interstellar")).thenReturn(false);
 
         assertEquals("This movie is not available\n", checkOutMovieOption.execute());
-
     }
 }
