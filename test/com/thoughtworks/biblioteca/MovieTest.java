@@ -21,4 +21,11 @@ public class MovieTest {
 
         assertEquals(movieOne, movieTwo);
     }
+
+    @Test
+    public void shouldNotBeEqualToNull() {
+        Movie movie = new Movie("Interstellar", "Nolan", "2015", "9.3");
+
+        assertNotEquals(null, movie);
+    }
 }
