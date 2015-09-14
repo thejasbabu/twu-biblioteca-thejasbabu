@@ -1,7 +1,7 @@
 // CheckOutOption class calls the neccessary method of library class and return appropriate message back.
 package com.thoughtworks.biblioteca;
 
-public class CheckOutOption implements Options{
+public class CheckOutOption implements Options {
 
     private Display display;
     private Input input;

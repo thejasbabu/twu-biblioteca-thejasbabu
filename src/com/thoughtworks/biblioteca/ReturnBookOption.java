@@ -1,12 +1,12 @@
-// CheckInOption class calls the neccessary function of library class and returns whether the checkin was successful or not.
+// ReturnBookOption class calls the neccessary function of library class and returns whether the checkin was successful or not.
 package com.thoughtworks.biblioteca;
 
-public class CheckInOption implements Options{
+public class ReturnBookOption implements Options{
     private Display display;
     private Input input;
     private Library library;
 
-    public CheckInOption(Display display, Input input, Library library) {
+    public ReturnBookOption(Display display, Input input, Library library) {
         this.display = display;
         this.input = input;
         this.library = library;

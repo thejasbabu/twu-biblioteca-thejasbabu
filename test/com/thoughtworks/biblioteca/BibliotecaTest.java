@@ -1,14 +1,6 @@
 package com.thoughtworks.biblioteca;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.contrib.java.lang.system.ExpectedSystemExit;
-
-import java.io.ByteArrayInputStream;
-import java.util.ArrayList;
-import java.util.Scanner;
 
 import static org.mockito.Mockito.*;
 
@@ -104,12 +96,12 @@ public class BibliotecaTest {
         Display display = mock(Display.class);
         Input input = mock(Input.class);
         Parser parser = mock(Parser.class);
-        CheckInOption checkInOption = mock(CheckInOption.class);
+        ReturnBookOption returnBookOption = mock(ReturnBookOption.class);
         Biblioteca biblioteca = new Biblioteca(display, input, parser, menu);
         when(input.read()).thenReturn("3");
-        when(parser.parse("3")).thenReturn(checkInOption);
+        when(parser.parse("3")).thenReturn(returnBookOption);
         biblioteca.run();
 
-        verify(checkInOption).execute();
+        verify(returnBookOption).execute();
     }
 }

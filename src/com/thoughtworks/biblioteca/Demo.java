@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class Demo {
 
-    public static void main(String[] args ) {
+    public static void mai1n(String[] args ) {
         Display display = new Display(new PrintStream(System.out));
         Input input = new Input(new Scanner(System.in));
         ArrayList<Book> books = new ArrayList<Book>();

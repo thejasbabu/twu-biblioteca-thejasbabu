@@ -8,19 +8,19 @@ import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class CheckInOptionTest {
+public class ReturnBookOptionTest {
 
     @Test
     public void shouldReturnThankYouMessageWhenCheckoutISSuccessful() {
         Display display = new Display(new PrintStream(System.out));
         Input input = mock(Input.class);
         Library library = mock(Library.class);
-        CheckInOption checkInOption = new CheckInOption(display, input, library);
+        ReturnBookOption returnBookOption = new ReturnBookOption(display, input, library);
 
         when(input.read()).thenReturn("Inferno");
         when(library.checkIn("Inferno")).thenReturn(true);
 
-        assertEquals("Thank you for returning your book\n", checkInOption.execute());
+        assertEquals("Thank you for returning your book\n", returnBookOption.execute());
     }
 
     @Test
@@ -28,11 +28,11 @@ public class CheckInOptionTest {
         Display display = new Display(new PrintStream(System.out));
         Input input = mock(Input.class);
         Library library = mock(Library.class);
-        CheckInOption checkInOption = new CheckInOption(display, input, library);
+        ReturnBookOption returnBookOption = new ReturnBookOption(display, input, library);
 
         when(input.read()).thenReturn("Inferno");
         when(library.checkIn("Inferno")).thenReturn(false);
 
-        assertEquals("This is not a valid book to return\n", checkInOption.execute());
+        assertEquals("This is not a valid book to return\n", returnBookOption.execute());
     }
 }

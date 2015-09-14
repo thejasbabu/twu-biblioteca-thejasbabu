@@ -17,6 +17,8 @@ public class ListBookOptionTest {
         Library library = new Library(books);
         ListBookOption listBookOption = new ListBookOption(display, library);
 
-        assertEquals("NAME\t\tAUTHOR\t\tYEAR\nInferno\t\tDan Brown\t\t2001\n", listBookOption.execute());
+        String header = String.format("%-40s%-40s%-40s\n", "NAME", "AUTHOR", "YEAR");
+        String bookList = String.format("%-40s%-40s%-40s\n", "Inferno", "Dan Brown", "2001");
+        assertEquals(header + bookList, listBookOption.execute());
     }
 }

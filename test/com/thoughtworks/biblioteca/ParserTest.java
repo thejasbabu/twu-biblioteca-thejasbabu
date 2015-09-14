@@ -62,6 +62,6 @@ public class ParserTest {
         Input input = new Input(new Scanner(System.in));
         Parser parser = new Parser(display, library, input);
 
-        assertEquals(CheckInOption.class, parser.parse("3").getClass());
+        assertEquals(ReturnBookOption.class, parser.parse("3").getClass());
     }
 }

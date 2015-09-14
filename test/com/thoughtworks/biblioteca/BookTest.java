@@ -10,7 +10,8 @@ public class BookTest {
     public void shouldReturnABookObjectInColumnFashion() {
         Book book = new Book("Inferno", "Dan Brown", "2001");
 
-        assertEquals("Inferno\t\tDan Brown\t\t2001\n", book.toString());
+        String bookList = String.format("%-40s%-40s%-40s\n", "Inferno", "Dan Brown", "2001");
+        assertEquals(bookList, book.toString());
     }
 
     @Test

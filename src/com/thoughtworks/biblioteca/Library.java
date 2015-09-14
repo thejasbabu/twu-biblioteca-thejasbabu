@@ -15,7 +15,8 @@ public class Library {
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("NAME\t\tAUTHOR\t\tYEAR\n");
+        String header = String.format("%-40s%-40s%-40s\n", "NAME", "AUTHOR", "YEAR");
+        stringBuilder.append(header);
         for(Book book : availableBooks)
             stringBuilder.append(book.toString());
         return stringBuilder.toString();

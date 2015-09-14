@@ -22,7 +22,7 @@ public class Biblioteca {
         }
     }
 
-    public void run() {
+    void run() {
         display.display(menu.toString());
         Options option = parser.parse(input.read());
         String displayMessage = option.execute();

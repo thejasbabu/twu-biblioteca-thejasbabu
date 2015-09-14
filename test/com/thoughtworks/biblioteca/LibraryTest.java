@@ -14,7 +14,9 @@ public class LibraryTest {
         books.add(new Book("Inferno", "Dan Brown", "2001"));
         Library library = new Library(books);
 
-        assertEquals("NAME\t\tAUTHOR\t\tYEAR\nInferno\t\tDan Brown\t\t2001\n", library.toString());
+        String header = String.format("%-40s%-40s%-40s\n","NAME", "AUTHOR", "YEAR");
+        String bookList = String.format("%-40s%-40s%-40s\n","Inferno", "Dan Brown", "2001");
+        assertEquals(header+bookList, library.toString());
     }
 
     @Test
