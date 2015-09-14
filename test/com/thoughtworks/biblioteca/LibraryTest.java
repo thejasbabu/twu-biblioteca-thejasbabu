@@ -28,7 +28,7 @@ public class LibraryTest {
         books.add(new Book("Gone girl", "Paulino", "2009"));
         Library library = new Library(books, movies);
 
-        assertEquals(true, library.checkOut("Gone girl"));
+        assertEquals(true, library.checkOutBook("Gone girl"));
     }
 
     @Test
@@ -39,7 +39,7 @@ public class LibraryTest {
         books.add(new Book("Gone girl", "Paulino", "2009"));
         Library library = new Library(books, movies);
 
-        assertEquals(false, library.checkOut("Next"));
+        assertEquals(false, library.checkOutBook("Next"));
     }
 
     @Test
@@ -50,9 +50,9 @@ public class LibraryTest {
         books.add(new Book("Next", "M.Crichton", "2009"));
         Library library = new Library(books, movies);
 
-        library.checkOut("Inferno");
+        library.checkOutBook("Inferno");
 
-        assertEquals(true, library.checkIn("Inferno"));
+        assertEquals(true, library.returnBook("Inferno"));
     }
 
     @Test
@@ -63,7 +63,7 @@ public class LibraryTest {
         books.add(new Book("Next", "M.Crichton", "2009"));
         Library library = new Library(books, movies);
 
-        assertNotEquals(true, library.checkIn("Inferno"));
+        assertNotEquals(true, library.returnBook("Inferno"));
     }
 
     @Test

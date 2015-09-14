@@ -23,7 +23,7 @@ public class Library {
         return stringBuilder.toString();
     }
 
-    public boolean checkOut(String bookName) {
+    public boolean checkOutBook(String bookName) {
         Book searchBook = new Book(bookName, "", "");
         for(Book book : availableBooks) {
             if(book.equals(searchBook))
@@ -36,7 +36,7 @@ public class Library {
         return false;
     }
 
-    public boolean checkIn(String bookName) {
+    public boolean returnBook(String bookName) {
         Book searchBook = new Book(bookName, "", "");
         for(Book book : checkedOutBooks) {
             if(book.equals(searchBook)){
@@ -56,5 +56,16 @@ public class Library {
             stringBuilder.append(movie.toString());
         }
         return stringBuilder.toString();
+    }
+
+    public boolean checkOutMovie(String movieName) {
+        Movie searchMovie = new Movie(movieName, "", "", "");
+        for(Movie movie : availableMovies) {
+            if(movie.equals(searchMovie)) {
+                availableMovies.remove(movie);
+                return true;
+            }
+        }
+        return false;
     }
 }

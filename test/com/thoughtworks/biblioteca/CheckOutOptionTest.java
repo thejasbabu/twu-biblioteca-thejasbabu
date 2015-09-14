@@ -18,7 +18,7 @@ public class CheckOutOptionTest {
         CheckOutOption checkOutOption = new CheckOutOption(display, input, library);
 
         when(input.read()).thenReturn("Inferno");
-        when(library.checkOut("Inferno")).thenReturn(true);
+        when(library.checkOutBook("Inferno")).thenReturn(true);
 
         assertEquals("Thank you! Enjoy your book\n", checkOutOption.execute());
     }
@@ -31,7 +31,7 @@ public class CheckOutOptionTest {
         CheckOutOption checkOutOption = new CheckOutOption(display, input, library);
 
         when(input.read()).thenReturn("Next");
-        when(library.checkOut("Next")).thenReturn(false);
+        when(library.checkOutBook("Next")).thenReturn(false);
 
         assertEquals("This book is not available\n", checkOutOption.execute());
     }

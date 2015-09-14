@@ -18,7 +18,7 @@ public class ReturnBookOptionTest {
         ReturnBookOption returnBookOption = new ReturnBookOption(display, input, library);
 
         when(input.read()).thenReturn("Inferno");
-        when(library.checkIn("Inferno")).thenReturn(true);
+        when(library.returnBook("Inferno")).thenReturn(true);
 
         assertEquals("Thank you for returning your book\n", returnBookOption.execute());
     }
@@ -31,7 +31,7 @@ public class ReturnBookOptionTest {
         ReturnBookOption returnBookOption = new ReturnBookOption(display, input, library);
 
         when(input.read()).thenReturn("Inferno");
-        when(library.checkIn("Inferno")).thenReturn(false);
+        when(library.returnBook("Inferno")).thenReturn(false);
 
         assertEquals("This is not a valid book to return\n", returnBookOption.execute());
     }

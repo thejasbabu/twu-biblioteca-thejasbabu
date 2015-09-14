@@ -15,6 +15,21 @@ public class Movie {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Movie movie = (Movie) o;
+
+        return name.equals(movie.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return name.hashCode();
+    }
+
+    @Override
     public String toString() {
         String movieList;
         movieList = String.format("%-40s%-40s%-40s%-40s\n", name, year, director, rating);
