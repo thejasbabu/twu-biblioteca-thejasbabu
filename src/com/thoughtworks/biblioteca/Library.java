@@ -1,4 +1,4 @@
-// Library class contains list of books
+// Library class contains list of books and performs checkin,checkout tasks.
 package com.thoughtworks.biblioteca;
 
 import java.util.ArrayList;
