@@ -78,4 +78,24 @@ public class LibraryTest {
 
         assertEquals(header + movieList, library.movieList());
     }
+
+    @Test
+    public void shouldReturnTrueWhenMovieCheckOutIsSuccessful() {
+        ArrayList<Book> books = new ArrayList<Book>();
+        ArrayList<Movie> movies = new ArrayList<Movie>();
+        movies.add(new Movie("Interstellar", "Nolan", "2015", "9.2"));
+        Library library = new Library(books, movies);
+
+        assertEquals(true, library.checkOutMovie("Interstellar"));
+    }
+
+    @Test
+    public void shouldReturnFalseWhenMovieCheckOutIsNotSuccessful() {
+        ArrayList<Book> books = new ArrayList<Book>();
+        ArrayList<Movie> movies = new ArrayList<Movie>();
+        movies.add(new Movie("Interstellar", "Nolan", "2015", "9.2"));
+        Library library = new Library(books, movies);
+
+        assertEquals(false, library.checkOutMovie("Next"));
+    }
 }
