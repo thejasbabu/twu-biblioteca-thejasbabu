@@ -15,8 +15,8 @@ public class Biblioteca {
 
     public void start() {
         display.display("Welcome to Biblioteca\n");
-        while(true) {
-            display.display("1. List Book\n 2. Checkout Book\n 3. Checkin Book\n 4. Exit\n");
+       while(true) {
+            display.display("1. List Book\n2. Checkout Book\n3. Checkin Book\n4. Exit\n");
             Options option = parser.parse(input.read());
             String displayMessage = option.execute();
             display.display(displayMessage);

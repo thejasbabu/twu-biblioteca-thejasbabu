@@ -2,7 +2,9 @@ package com.thoughtworks.biblioteca;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.contrib.java.lang.system.ExpectedSystemExit;
 
 import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
@@ -12,13 +14,9 @@ import static org.mockito.Mockito.*;
 
 
 public class BibliotecaTest {
-    String userChoice = "1";
-    final ByteArrayInputStream inContent = new ByteArrayInputStream(userChoice.getBytes());
+    @Rule
+    public final ExpectedSystemExit exit = ExpectedSystemExit.none();
 
-    @Before
-    public void setUp() {
-        System.setIn(inContent);
-    }
 
     @Test
     public void shouldReturnWelcomeMessageWhenBibliotecaApplicationHasStarted() {
@@ -27,10 +25,13 @@ public class BibliotecaTest {
         books.add(new Book("Harry Potter", "JK Rowling", "2005"));
         Library library = new Library(books);
         Display display = mock(Display.class);
-        Input input = new Input(new Scanner(System.in));
-        Parser parser = new Parser(display, library, input);
+        Input input = mock(Input.class);
+        Parser parser = mock(Parser.class);
+        ExitOption exitOption = mock(ExitOption.class);
+        //Parser parser = new Parser(display, library, input);
         Biblioteca biblioteca = new Biblioteca(display, input, parser);
-
+        when(input.read()).thenReturn("4");
+        when(parser.parse("4")).thenReturn(exitOption);
         biblioteca.start();
 
         verify(display).display("Welcome to Biblioteca\n");
@@ -44,12 +45,19 @@ public class BibliotecaTest {
         Library library = new Library(books);
         Display display = mock(Display.class);
         Input input = mock(Input.class);
-        Parser parser = new Parser(display, library, input);
+        Parser parser = mock(Parser.class);
+        ExitOption exitOption = mock(ExitOption.class);
+        ListBookOption listBookOption = mock(ListBookOption.class);
         Biblioteca biblioteca = new Biblioteca(display, input, parser);
-        when(input.read()).thenReturn("1");
+        when(input.read()).thenReturn("1", "4");
+        when(parser.parse("1")).thenReturn(listBookOption);
+        when(listBookOption.execute()).thenReturn("listBookOption Called");
+        when(parser.parse("4")).thenReturn(exitOption);
+
+        exit.expectSystemExitWithStatus(0);
         biblioteca.start();
 
-        verify(display).display("1. List Book\n 2. Checkout Book\n 3. Checkin Book\n 4. Exit\n");
+        verify(display).display("listBookOption Called");
     }
 
     @Test
@@ -135,9 +143,5 @@ public class BibliotecaTest {
         biblioteca.start();
 
         verify(checkInOption).execute();
-    }
-    @After
-    public void cleanUp() {
-        System.setIn(System.in);
     }
 }
