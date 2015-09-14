@@ -69,4 +69,16 @@ public class ParserTest {
 
         assertEquals(ReturnBookOption.class, parser.parse("3").getClass());
     }
+
+    @Test
+    public void shouldReturnMovieListWhenUserEntersFive() {
+        Display display = new Display(new PrintStream(System.out));
+        ArrayList<Book> books = new ArrayList<Book>();
+        ArrayList<Movie> movies = new ArrayList<Movie>();
+        Library library = new Library(books, movies);
+        Input input = new Input(new Scanner(System.in));
+        Parser parser = new Parser(display, library, input);
+
+        assertEquals(MovieListOption.class, parser.parse("5").getClass());
+    }
 }

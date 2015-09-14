@@ -22,6 +22,8 @@ public class Parser {
             return new ReturnBookOption(display, input, library);
         else if(option.equals("4"))
             return new ExitOption();
+        else if(option.equals("5"))
+            return new MovieListOption(library);
         else
             return new InvalidOption();
     }
