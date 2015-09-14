@@ -80,13 +80,13 @@ public class BibliotecaTest {
         Display display = mock(Display.class);
         Input input = mock(Input.class);
         Parser parser = mock(Parser.class);
-        CheckOutOption checkOutOption = mock(CheckOutOption.class);
+        CheckOutBookOption checkOutBookOption = mock(CheckOutBookOption.class);
         Biblioteca biblioteca = new Biblioteca(display, input, parser,menu);
         when(input.read()).thenReturn("2");
-        when(parser.parse("2")).thenReturn(checkOutOption);
+        when(parser.parse("2")).thenReturn(checkOutBookOption);
         biblioteca.run();
 
-        verify(checkOutOption).execute();
+        verify(checkOutBookOption).execute();
     }
 
     @Test

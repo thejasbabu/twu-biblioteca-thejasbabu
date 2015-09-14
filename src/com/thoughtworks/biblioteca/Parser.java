@@ -17,7 +17,7 @@ public class Parser {
         if(option.equals("1"))
             return new ListBookOption(library);
         else if(option.equals("2"))
-            return new CheckOutOption(display, input, library);
+            return new CheckOutBookOption(display, input, library);
         else if(option.equals("3"))
             return new ReturnBookOption(display, input, library);
         else if(option.equals("4"))

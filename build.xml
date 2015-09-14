@@ -43,6 +43,22 @@
     <mkdir dir="out/instrumentedclasses" />
   </target>
 
+  <target name="buildJar" depends="compile.sources">
+    <jar destfile="lib/BibliotecaApplication.jar" basedir="out/classes" excludes="**/*Test*.class">
+      <manifest>
+        <attribute name="Main-Class" value="com.thoughtworks.biblioteca.Demo"/>
+      </manifest>
+    </jar>
+  </target>
+
+  <target name="run" depends="buildJar">
+    <java fork="true" failonerror="yes" classname="com.thoughtworks.biblioteca.Demo">
+      <classpath>
+        <path location="lib/BibliotecaApplication.jar"/>
+      </classpath>
+    </java>
+  </target>
+
   <target name="compile.sources" depends="prepare">
     <javac srcdir="src" destdir="out/classes" debug="on" fork="true" includeantruntime="no" />
   </target>

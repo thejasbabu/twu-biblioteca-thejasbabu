@@ -1,13 +1,13 @@
 // CheckOutOption class calls the neccessary method of library class and return appropriate message back.
 package com.thoughtworks.biblioteca;
 
-public class CheckOutOption implements Options {
+public class CheckOutBookOption implements Options {
 
     private Display display;
     private Input input;
     private Library library;
 
-    public CheckOutOption(Display display, Input input, Library library) {
+    public CheckOutBookOption(Display display, Input input, Library library) {
         this.display = display;
         this.input = input;
         this.library = library;
