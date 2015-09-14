@@ -11,11 +11,11 @@ public class ListBookOptionTest {
 
     @Test
     public void shouldReturnListOfBooksWhenExecuteIsCalled() {
-        Display display = new Display(new PrintStream(System.out));
         ArrayList<Book> books = new ArrayList<Book>();
+        ArrayList<Movie> movies = new ArrayList<Movie>();
         books.add(new Book("Inferno", "Dan Brown", "2001"));
-        Library library = new Library(books);
-        ListBookOption listBookOption = new ListBookOption(display, library);
+        Library library = new Library(books, movies);
+        ListBookOption listBookOption = new ListBookOption(library);
 
         String header = String.format("%-40s%-40s%-40s\n", "NAME", "AUTHOR", "YEAR");
         String bookList = String.format("%-40s%-40s%-40s\n", "Inferno", "Dan Brown", "2001");

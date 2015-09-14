@@ -7,7 +7,6 @@ import static org.mockito.Mockito.*;
 
 public class BibliotecaTest {
 
-
     @Test
     public void shouldDisplayMenuOptionsAlongWithWelcomeMessage() {
         Menu menu = mock(Menu.class);

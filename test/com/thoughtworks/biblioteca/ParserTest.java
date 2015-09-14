@@ -14,7 +14,8 @@ public class ParserTest {
     public void shouldReturnAListBookObjectWhenOptionIsOne() {
         Display display = new Display(new PrintStream(System.out));
         ArrayList<Book> books = new ArrayList<Book>();
-        Library library = new Library(books);
+        ArrayList<Movie> movies = new ArrayList<Movie>();
+        Library library = new Library(books, movies);
         Input input = new Input(new Scanner(System.in));
         Parser parser = new Parser(display, library, input);
 
@@ -25,7 +26,8 @@ public class ParserTest {
     public void shouldReturnAInvalidObjectWhenInvalidOptionIsEntered() {
         Display display = new Display(new PrintStream(System.out));
         ArrayList<Book> books = new ArrayList<Book>();
-        Library library = new Library(books);
+        ArrayList<Movie> movies = new ArrayList<Movie>();
+        Library library = new Library(books, movies);
         Input input = new Input(new Scanner(System.in));
         Parser parser = new Parser(display, library, input);
 
@@ -36,7 +38,8 @@ public class ParserTest {
     public void shouldReturnExitOptionObjectWhenExitOptionIsSelected() {
         Display display = new Display(new PrintStream(System.out));
         ArrayList<Book> books = new ArrayList<Book>();
-        Library library = new Library(books);
+        ArrayList<Movie> movies = new ArrayList<Movie>();
+        Library library = new Library(books, movies);
         Input input = new Input(new Scanner(System.in));
         Parser parser = new Parser(display, library, input);
 
@@ -47,7 +50,8 @@ public class ParserTest {
     public void shouldReturnCheckOutOptionObjectWhenUserInputIsTwo() {
         Display display = new Display(new PrintStream(System.out));
         ArrayList<Book> books = new ArrayList<Book>();
-        Library library = new Library(books);
+        ArrayList<Movie> movies = new ArrayList<Movie>();
+        Library library = new Library(books, movies);
         Input input = new Input(new Scanner(System.in));
         Parser parser = new Parser(display, library, input);
 
@@ -58,7 +62,8 @@ public class ParserTest {
     public void shouldReturnCheckInObjectWhenUserInputIsThree() {
         Display display = new Display(new PrintStream(System.out));
         ArrayList<Book> books = new ArrayList<Book>();
-        Library library = new Library(books);
+        ArrayList<Movie> movies = new ArrayList<Movie>();
+        Library library = new Library(books, movies);
         Input input = new Input(new Scanner(System.in));
         Parser parser = new Parser(display, library, input);
 

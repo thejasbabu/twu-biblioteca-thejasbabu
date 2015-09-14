@@ -1,4 +1,4 @@
-// Library class contains list of books and performs checkin,checkout tasks.
+// Library class contains list of books and movies and performs checkin,checkout tasks.
 package com.thoughtworks.biblioteca;
 
 import java.util.ArrayList;
@@ -6,14 +6,15 @@ import java.util.ArrayList;
 public class Library {
     private ArrayList<Book> availableBooks;
     private ArrayList<Book> checkedOutBooks;
+    private ArrayList<Movie> availableMovies;
 
-    public Library(ArrayList<Book> availableBooks) {
+    public Library(ArrayList<Book> availableBooks, ArrayList<Movie> availableMovies) {
         this.availableBooks = availableBooks;
+        this.availableMovies = availableMovies;
         checkedOutBooks = new ArrayList<Book>();
     }
 
-    @Override
-    public String toString() {
+    public String bookList() {
         StringBuilder stringBuilder = new StringBuilder();
         String header = String.format("%-40s%-40s%-40s\n", "NAME", "AUTHOR", "YEAR");
         stringBuilder.append(header);
@@ -45,5 +46,15 @@ public class Library {
             }
         }
         return false;
+    }
+
+    public String movieList() {
+        StringBuilder stringBuilder = new StringBuilder();
+        String header = String.format("%-40s%-40s%-40s%-40s\n", "NAME", "DIRECTOR", "YEAR", "RATING");
+        stringBuilder.append(header);
+        for(Movie movie : availableMovies) {
+            stringBuilder.append(movie.toString());
+        }
+        return stringBuilder.toString();
     }
 }
