@@ -6,11 +6,13 @@ public class Parser {
     private Display display;
     private Library library;
     private Input input;
+    private UserAccount userAccount;
 
-    public Parser(Display display, Library library, Input input) {
+    public Parser(Display display, Library library, Input input, UserAccount userAccount) {
         this.display = display;
         this.library = library;
         this.input = input;
+        this.userAccount = userAccount;
     }
 
     public Options parse(String option) {
@@ -26,6 +28,8 @@ public class Parser {
             return new MovieListOption(library);
         else if(option.equals("6"))
             return new CheckOutMovieOption(library, input, display);
+        else if(option.equals("7"))
+            return new LoginOption(userAccount, input, display);
         else
             return new InvalidOption();
     }

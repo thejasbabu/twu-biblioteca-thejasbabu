@@ -6,7 +6,7 @@ import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class LoginTest {
+public class LoginOptionTest {
 
     @Test
     public void shouldReturnSuccessfulMessageWhenUserAuthenticationIsSuccessful() {
@@ -15,11 +15,11 @@ public class LoginTest {
         Display display = mock(Display.class);
         Session session = mock(Session.class);
         User user = new User("XXX", "XXX", User.Role.INVALID);
-        Login login = new Login(userAccount, input, display);
+        LoginOption loginOption = new LoginOption(userAccount, input, display);
         when(input.read()).thenReturn("XXX", "meh");
         when(userAccount.authenticate("XXX", "meh")).thenReturn(user);
 
-        assertEquals("Login UnSuccesful\n", login.execute(session));
+        assertEquals("LoginOption UnSuccesful\n", loginOption.execute(session));
     }
 
     @Test
@@ -29,10 +29,10 @@ public class LoginTest {
         Display display = mock(Display.class);
         Session session = mock(Session.class);
         User user = new User("XXX", "XXX", User.Role.CUSTOMER);
-        Login login = new Login(userAccount, input, display);
+        LoginOption loginOption = new LoginOption(userAccount, input, display);
         when(input.read()).thenReturn("XXX", "meh");
         when(userAccount.authenticate("XXX", "meh")).thenReturn(user);
 
-        assertEquals("Login Succesful\n", login.execute(session));
+        assertEquals("LoginOption Succesful\n", loginOption.execute(session));
     }
 }

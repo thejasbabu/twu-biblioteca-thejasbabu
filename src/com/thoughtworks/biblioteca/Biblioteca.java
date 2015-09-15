@@ -26,6 +26,10 @@ public class Biblioteca {
     }
 
     void run() {
+        User user = session.getUser();
+        if(user.getRole().equals(User.Role.INVALID)) {
+
+        }
         display.display(menu.toString());
         Options option = parser.parse(input.read());
         String displayMessage = option.execute(session);

@@ -1,13 +1,13 @@
 // Login class executes the authentication of user
 package com.thoughtworks.biblioteca;
 
-public class Login implements Options{
+public class LoginOption implements Options{
 
     private UserAccount userAccount;
     private Input input;
     private Display display;
 
-    public Login(UserAccount userAccount, Input input, Display display) {
+    public LoginOption(UserAccount userAccount, Input input, Display display) {
         this.userAccount = userAccount;
         this.input = input;
         this.display = display;

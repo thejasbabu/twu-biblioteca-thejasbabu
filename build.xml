@@ -52,9 +52,9 @@
   </target>
 
   <target name="run" depends="buildJar">
-    <java fork="true" failonerror="yes" classname="com.biblioteca.BibliotecaApp">
+    <java fork="true" failonerror="yes" classname="com.thoughtworks.biblioteca.Demo">
       <classpath>
-        <path location="lib/TWU_Biblioteca-master-Muskan.jar"/>
+        <path location="lib/BibliotecaApplication.jar"/>
       </classpath>
     </java>
   </target>
