@@ -4,11 +4,14 @@ package com.thoughtworks.biblioteca;
 public class User {
     private String password;
     private String username;
+    public enum Role {CUSTOMER, LIBRARIAN, INVALID};
+    private Role userRole;
 
 
-    public User(String username, String password) {
+    public User(String username, String password, Role userRole ) {
         this.password = password;
         this.username = username;
+        this.userRole = userRole;
     }
 
     @Override
@@ -19,7 +22,6 @@ public class User {
         User user = (User) o;
 
         return !(username != null ? !username.equals(user.username) : user.username != null);
-
     }
 
     @Override
