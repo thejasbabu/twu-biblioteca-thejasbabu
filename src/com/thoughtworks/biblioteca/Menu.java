@@ -31,4 +31,12 @@ public class Menu {
         }
         return menu;
     }
+
+    public String librarianMenu() {
+        String menu = "";
+        for(String menuOption : librarianMenuItems) {
+            menu += menuOption + "\n";
+        }
+        return menu;
+    }
 }

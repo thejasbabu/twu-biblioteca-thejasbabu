@@ -36,4 +36,20 @@ public class MenuTest {
 
         assertEquals("1. List Book\n2. Checkout Book\n3. Checkin Book\n4. Exit\n5. Logout\n", menu.customerMenu());
     }
+
+    @Test
+    public void shouldReturnListOfMenuItemForLibrarian() {
+        ArrayList<String> invalidMenu = new ArrayList<String>();
+        ArrayList<String> customerMenu = new ArrayList<String>();
+        ArrayList<String> librarian = new ArrayList<String>();
+        librarian.add("1. List Book");
+        librarian.add("2. Checkout Book");
+        librarian.add("3. Checkin Book");
+        librarian.add("4. Checkout Movie");
+        librarian.add("5. Exit");
+        librarian.add("6. Logout");
+        Menu menu = new Menu(invalidMenu, customerMenu, librarian);
+
+        assertEquals("1. List Book\n2. Checkout Book\n3. Checkin Book\n4. Checkout Movie\n5. Exit\n6. Logout\n", menu.librarianMenu());
+    }
 }
