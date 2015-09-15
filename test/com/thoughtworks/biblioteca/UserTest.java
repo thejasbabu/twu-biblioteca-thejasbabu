@@ -13,4 +13,19 @@ public class UserTest {
 
         assertEquals(userOne, userTwo);
     }
+
+    @Test
+    public void shouldReturnFalseWhenPasswordAndUsernameIsNotSame() {
+        User userOne = new User("LIB-1233", "Phew123");
+        User userTwo = new User("LIB-1234", "Phew123");
+
+        assertNotEquals(userOne, userTwo);
+    }
+
+    @Test
+    public void shouldNotBeEqualToNull() {
+        User userOne = new User("LIB-1233", "Phew123");
+
+        assertNotEquals(null, userOne);
+    }
 }
