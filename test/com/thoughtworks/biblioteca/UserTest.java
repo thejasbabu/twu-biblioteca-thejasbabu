@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 public class UserTest {
 
     @Test
-    public void shouldReturnTrueWhenPasswordAndUsernameIsSame() {
+    public void shouldReturnTrueWhenUsernameIsSame() {
         User userOne = new User("LIB-1234", "Phew123");
         User userTwo = new User("LIB-1234", "Phew123");
 
@@ -15,7 +15,7 @@ public class UserTest {
     }
 
     @Test
-    public void shouldReturnFalseWhenPasswordAndUsernameIsNotSame() {
+    public void shouldReturnFalseWhenUsernameIsNotSame() {
         User userOne = new User("LIB-1233", "Phew123");
         User userTwo = new User("LIB-1234", "Phew123");
 

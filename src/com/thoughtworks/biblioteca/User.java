@@ -18,15 +18,12 @@ public class User {
 
         User user = (User) o;
 
-        if (!password.equals(user.password)) return false;
-        return username.equals(user.username);
+        return !(username != null ? !username.equals(user.username) : user.username != null);
 
     }
 
     @Override
     public int hashCode() {
-        int result = password.hashCode();
-        result = 31 * result + username.hashCode();
-        return result;
+        return username != null ? username.hashCode() : 0;
     }
 }
