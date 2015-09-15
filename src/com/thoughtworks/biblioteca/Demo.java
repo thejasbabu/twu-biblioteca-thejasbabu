@@ -26,7 +26,9 @@ public class Demo {
 
         Menu menu = new Menu(menuItems);
         Library library = new Library(books, movies);
-        Parser parser = new Parser(display, library, input);
+        User user = new User("XXX", "XXX", User.Role.INVALID);
+        Session session = new Session(user);
+        Parser parser = new Parser(display, library, input, session);
         Biblioteca biblioteca = new Biblioteca(display, input, parser, menu);
         biblioteca.start();
     }

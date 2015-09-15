@@ -29,6 +29,10 @@ public class User {
         return username != null ? username.hashCode() : 0;
     }
 
+    public Role getRole() {
+        return this.userRole;
+    }
+
     public boolean checkPassword(User thatUser) {
         if(this.password.equals(thatUser.password))
             return true;

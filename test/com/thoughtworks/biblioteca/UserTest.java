@@ -44,4 +44,11 @@ public class UserTest {
 
         assertNotEquals(true, userOne.checkPassword(userTwo));
     }
+
+    @Test
+    public void shouldReturnTheRoleOfTheUser() {
+        User userOne = new User("LIB-1233", "Phew123", User.Role.CUSTOMER);
+
+        assertEquals(User.Role.CUSTOMER, userOne.getRole());
+    }
 }
