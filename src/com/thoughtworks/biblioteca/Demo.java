@@ -22,6 +22,7 @@ public class Demo {
         menuItems.add("3. Checkin Book");
         menuItems.add("4. Exit");
         menuItems.add("5. List Movie");
+        menuItems.add("6. Checkout Movie");
 
         Menu menu = new Menu(menuItems);
         Library library = new Library(books, movies);
