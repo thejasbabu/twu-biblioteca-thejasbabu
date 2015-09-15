@@ -10,7 +10,7 @@ public class ListBookOption implements Options{
     }
 
     @Override
-    public String execute() {
+    public String execute(Session session) {
         String listOfBooks;
         listOfBooks = library.bookList();
         return listOfBooks;

@@ -15,12 +15,13 @@ public class ReturnBookOptionTest {
         Display display = new Display(new PrintStream(System.out));
         Input input = mock(Input.class);
         Library library = mock(Library.class);
+        Session session = mock(Session.class);
         ReturnBookOption returnBookOption = new ReturnBookOption(display, input, library);
 
         when(input.read()).thenReturn("Inferno");
         when(library.returnBook("Inferno")).thenReturn(true);
 
-        assertEquals("Thank you for returning your book\n", returnBookOption.execute());
+        assertEquals("Thank you for returning your book\n", returnBookOption.execute(session));
     }
 
     @Test
@@ -28,11 +29,12 @@ public class ReturnBookOptionTest {
         Display display = new Display(new PrintStream(System.out));
         Input input = mock(Input.class);
         Library library = mock(Library.class);
+        Session session = mock(Session.class);
         ReturnBookOption returnBookOption = new ReturnBookOption(display, input, library);
 
         when(input.read()).thenReturn("Inferno");
         when(library.returnBook("Inferno")).thenReturn(false);
 
-        assertEquals("This is not a valid book to return\n", returnBookOption.execute());
+        assertEquals("This is not a valid book to return\n", returnBookOption.execute(session));
     }
 }

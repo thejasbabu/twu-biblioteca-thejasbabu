@@ -15,7 +15,7 @@ public class CheckOutMovieOption implements Options{
     }
 
     @Override
-    public String execute() {
+    public String execute(Session session) {
         String enterNameMessage = "Enter the name of the movie you want to checkout\n";
         display.display(enterNameMessage);
         String movieName = input.read();

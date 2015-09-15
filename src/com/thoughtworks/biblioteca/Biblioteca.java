@@ -7,13 +7,15 @@ public class Biblioteca {
     private Input input;
     private Parser parser;
     private Menu menu;
+    private Session session;
 
 
-    public Biblioteca(Display display, Input input, Parser parser, Menu menu) {
+    public Biblioteca(Display display, Input input, Parser parser, Menu menu, Session session) {
         this.display = display;
         this.input = input;
         this.parser = parser;
         this.menu = menu;
+        this.session = session;
     }
 
     public void start() {
@@ -26,7 +28,7 @@ public class Biblioteca {
     void run() {
         display.display(menu.toString());
         Options option = parser.parse(input.read());
-        String displayMessage = option.execute();
+        String displayMessage = option.execute(session);
         display.display(displayMessage);
     }
 }

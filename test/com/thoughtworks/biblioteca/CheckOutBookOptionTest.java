@@ -15,12 +15,13 @@ public class CheckOutBookOptionTest {
         Display display = new Display(new PrintStream(System.out));
         Input input = mock(Input.class);
         Library library = mock(Library.class);
+        Session session = mock(Session.class);
         CheckOutBookOption checkOutBookOption = new CheckOutBookOption(display, input, library);
 
         when(input.read()).thenReturn("Inferno");
         when(library.checkOutBook("Inferno")).thenReturn(true);
 
-        assertEquals("Thank you! Enjoy your book\n", checkOutBookOption.execute());
+        assertEquals("Thank you! Enjoy your book\n", checkOutBookOption.execute(session));
     }
 
     @Test
@@ -28,11 +29,12 @@ public class CheckOutBookOptionTest {
         Display display = new Display(new PrintStream(System.out));
         Input input = mock(Input.class);
         Library library = mock(Library.class);
+        Session session = mock(Session.class);
         CheckOutBookOption checkOutBookOption = new CheckOutBookOption(display, input, library);
 
         when(input.read()).thenReturn("Next");
         when(library.checkOutBook("Next")).thenReturn(false);
 
-        assertEquals("This book is not available\n", checkOutBookOption.execute());
+        assertEquals("This book is not available\n", checkOutBookOption.execute(session));
     }
 }

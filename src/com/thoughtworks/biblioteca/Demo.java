@@ -28,8 +28,8 @@ public class Demo {
         Library library = new Library(books, movies);
         User user = new User("XXX", "XXX", User.Role.INVALID);
         Session session = new Session(user);
-        Parser parser = new Parser(display, library, input, session);
-        Biblioteca biblioteca = new Biblioteca(display, input, parser, menu);
+        Parser parser = new Parser(display, library, input);
+        Biblioteca biblioteca = new Biblioteca(display, input, parser, menu, session);
         biblioteca.start();
     }
 }

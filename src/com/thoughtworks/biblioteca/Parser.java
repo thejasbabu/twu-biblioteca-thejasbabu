@@ -6,13 +6,11 @@ public class Parser {
     private Display display;
     private Library library;
     private Input input;
-    private Session session;
 
-    public Parser(Display display, Library library, Input input, Session session) {
+    public Parser(Display display, Library library, Input input) {
         this.display = display;
         this.library = library;
         this.input = input;
-        this.session = session;
     }
 
     public Options parse(String option) {

@@ -4,7 +4,7 @@ package com.thoughtworks.biblioteca;
 public class InvalidOption implements Options{
 
     @Override
-    public String execute() {
+    public String execute(Session session) {
        return "Invalid Option\n";
     }
 }

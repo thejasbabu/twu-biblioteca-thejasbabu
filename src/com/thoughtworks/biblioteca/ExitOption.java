@@ -4,7 +4,7 @@ package com.thoughtworks.biblioteca;
 public class ExitOption implements Options {
 
     @Override
-    public String execute() {
+    public String execute(Session session) {
         System.exit(0);
         return "EXIT";
     }

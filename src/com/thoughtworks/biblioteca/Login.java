@@ -6,17 +6,15 @@ public class Login implements Options{
     private UserAccount userAccount;
     private Input input;
     private Display display;
-    private Session session;
 
-    public Login(UserAccount userAccount, Input input, Display display, Session session) {
+    public Login(UserAccount userAccount, Input input, Display display) {
         this.userAccount = userAccount;
         this.input = input;
         this.display = display;
-        this.session = session;
     }
 
     @Override
-    public String execute() {
+    public String execute(Session session) {
         display.display("Enter username:");
         String userName = input.read();
         display.display("Enter password:");

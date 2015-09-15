@@ -9,7 +9,7 @@ public class MovieListOption implements Options{
     }
 
     @Override
-    public String execute() {
+    public String execute(Session session) {
         String movieList;
         movieList = library.movieList();
         return movieList;

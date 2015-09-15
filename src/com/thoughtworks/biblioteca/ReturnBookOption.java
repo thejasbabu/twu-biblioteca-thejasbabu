@@ -13,7 +13,7 @@ public class ReturnBookOption implements Options{
     }
 
     @Override
-    public String execute() {
+    public String execute(Session session) {
         String enterNameMessage = "Enter the name of the book you want to return\n";
         display.display(enterNameMessage);
         String bookName = input.read();

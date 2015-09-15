@@ -18,8 +18,7 @@ public class ParserTest {
         ArrayList<Movie> movies = new ArrayList<Movie>();
         Library library = new Library(books, movies);
         Input input = new Input(new Scanner(System.in));
-        Session session = mock(Session.class);
-        Parser parser = new Parser(display, library, input, session);
+        Parser parser = new Parser(display, library, input);
 
         assertEquals(ListBookOption.class, parser.parse("1").getClass());
     }
@@ -31,8 +30,7 @@ public class ParserTest {
         ArrayList<Movie> movies = new ArrayList<Movie>();
         Library library = new Library(books, movies);
         Input input = new Input(new Scanner(System.in));
-        Session session = mock(Session.class);
-        Parser parser = new Parser(display, library, input, session);
+        Parser parser = new Parser(display, library, input);
 
         assertEquals(InvalidOption.class, parser.parse("Biblioteca").getClass());
     }
@@ -44,8 +42,7 @@ public class ParserTest {
         ArrayList<Movie> movies = new ArrayList<Movie>();
         Library library = new Library(books, movies);
         Input input = new Input(new Scanner(System.in));
-        Session session = mock(Session.class);
-        Parser parser = new Parser(display, library, input, session);
+        Parser parser = new Parser(display, library, input);
 
         assertEquals(ExitOption.class, parser.parse("4").getClass());
     }
@@ -57,8 +54,7 @@ public class ParserTest {
         ArrayList<Movie> movies = new ArrayList<Movie>();
         Library library = new Library(books, movies);
         Input input = new Input(new Scanner(System.in));
-        Session session = mock(Session.class);
-        Parser parser = new Parser(display, library, input, session);
+        Parser parser = new Parser(display, library, input);
 
         assertEquals(CheckOutBookOption.class, parser.parse("2").getClass());
     }
@@ -70,8 +66,7 @@ public class ParserTest {
         ArrayList<Movie> movies = new ArrayList<Movie>();
         Library library = new Library(books, movies);
         Input input = new Input(new Scanner(System.in));
-        Session session = mock(Session.class);
-        Parser parser = new Parser(display, library, input, session);
+        Parser parser = new Parser(display, library, input);
 
         assertEquals(ReturnBookOption.class, parser.parse("3").getClass());
     }
@@ -83,8 +78,7 @@ public class ParserTest {
         ArrayList<Movie> movies = new ArrayList<Movie>();
         Library library = new Library(books, movies);
         Input input = new Input(new Scanner(System.in));
-        Session session = mock(Session.class);
-        Parser parser = new Parser(display, library, input, session);
+        Parser parser = new Parser(display, library, input);
 
         assertEquals(MovieListOption.class, parser.parse("5").getClass());
     }
@@ -96,8 +90,7 @@ public class ParserTest {
         ArrayList<Movie> movies = new ArrayList<Movie>();
         Library library = new Library(books, movies);
         Input input = new Input(new Scanner(System.in));
-        Session session = mock(Session.class);
-        Parser parser = new Parser(display, library, input, session);
+        Parser parser = new Parser(display, library, input);
 
         assertEquals(CheckOutMovieOption.class, parser.parse("6").getClass());
     }
