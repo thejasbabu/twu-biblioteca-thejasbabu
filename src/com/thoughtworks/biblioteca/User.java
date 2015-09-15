@@ -26,4 +26,11 @@ public class User {
     public int hashCode() {
         return username != null ? username.hashCode() : 0;
     }
+
+    public boolean checkPassword(User thatUser) {
+        if(this.password.equals(thatUser.password))
+            return true;
+        else
+            return false;
+    }
 }
