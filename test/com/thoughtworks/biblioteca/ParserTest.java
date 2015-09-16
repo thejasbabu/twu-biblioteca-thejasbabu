@@ -12,20 +12,6 @@ import static org.mockito.Mockito.mock;
 public class ParserTest {
 
     @Test
-    public void shouldReturnAListBookObjectWhenOptionIsOne() {
-        Display display = new Display(new PrintStream(System.out));
-        ArrayList<Book> books = new ArrayList<Book>();
-        ArrayList<Movie> movies = new ArrayList<Movie>();
-        Library library = new Library(books, movies);
-        Input input = new Input(new Scanner(System.in));
-        UserAccount userAccount = mock(UserAccount.class);
-        Session session = mock(Session.class);
-        Parser parser = new Parser(display, library, input, userAccount, session);
-
-        assertEquals(ListBookOption.class, parser.parse("1").getClass());
-    }
-
-    @Test
     public void shouldReturnAInvalidObjectWhenInvalidOptionIsEntered() {
         Display display = new Display(new PrintStream(System.out));
         ArrayList<Book> books = new ArrayList<Book>();
@@ -33,7 +19,7 @@ public class ParserTest {
         Library library = new Library(books, movies);
         Input input = new Input(new Scanner(System.in));
         UserAccount userAccount = mock(UserAccount.class);
-        Session session = mock(Session.class);
+        Session session = new Session(new User("123-3333", "blah", User.Role.CUSTOMER));
         Parser parser = new Parser(display, library, input, userAccount, session);
 
         assertEquals(InvalidOption.class, parser.parse("Biblioteca").getClass());
@@ -47,39 +33,12 @@ public class ParserTest {
         Library library = new Library(books, movies);
         Input input = new Input(new Scanner(System.in));
         UserAccount userAccount = mock(UserAccount.class);
-        Session session = mock(Session.class);
+        Session session = new Session(new User("123-3333", "blah", User.Role.CUSTOMER));
         Parser parser = new Parser(display, library, input, userAccount, session);
 
         assertEquals(ExitOption.class, parser.parse("4").getClass());
     }
 
-    @Test
-    public void shouldReturnCheckOutOptionObjectWhenUserInputIsTwo() {
-        Display display = new Display(new PrintStream(System.out));
-        ArrayList<Book> books = new ArrayList<Book>();
-        ArrayList<Movie> movies = new ArrayList<Movie>();
-        Library library = new Library(books, movies);
-        Input input = new Input(new Scanner(System.in));
-        UserAccount userAccount = mock(UserAccount.class);
-        Session session = mock(Session.class);
-        Parser parser = new Parser(display, library, input, userAccount, session);
-
-        assertEquals(CheckOutBookOption.class, parser.parse("2").getClass());
-    }
-
-    @Test
-    public void shouldReturnCheckInObjectWhenUserInputIsThree() {
-        Display display = new Display(new PrintStream(System.out));
-        ArrayList<Book> books = new ArrayList<Book>();
-        ArrayList<Movie> movies = new ArrayList<Movie>();
-        Library library = new Library(books, movies);
-        Input input = new Input(new Scanner(System.in));
-        UserAccount userAccount = mock(UserAccount.class);
-        Session session = mock(Session.class);
-        Parser parser = new Parser(display, library, input, userAccount, session);
-
-        assertEquals(ReturnBookOption.class, parser.parse("3").getClass());
-    }
 
     @Test
     public void shouldReturnMovieListWhenUserEntersFive() {
@@ -121,5 +80,19 @@ public class ParserTest {
         Parser parser = new Parser(display, library, input, userAccount, session);
 
         assertEquals(InvalidOption.class, parser.parse("2").getClass());
+    }
+
+    @Test
+    public void shouldReturnInvalidOptionObjectWhenCheckInOptionIsCalledWithoutLogin() {
+        Display display = new Display(new PrintStream(System.out));
+        ArrayList<Book> books = new ArrayList<Book>();
+        ArrayList<Movie> movies = new ArrayList<Movie>();
+        Library library = new Library(books, movies);
+        Input input = new Input(new Scanner(System.in));
+        UserAccount userAccount = mock(UserAccount.class);
+        Session session = new Session(new User("123-3333", "blah", User.Role.INVALID));
+        Parser parser = new Parser(display, library, input, userAccount, session);
+
+        assertEquals(InvalidOption.class, parser.parse("3").getClass());
     }
 }
