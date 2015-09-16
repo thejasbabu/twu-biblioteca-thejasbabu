@@ -11,8 +11,10 @@ public class UserDetailsOption implements Options {
 
     @Override
     public String execute() {
-        String userDetails;
-        userDetails = user.userDetails();
-        return userDetails;
+        StringBuilder userDetails = new StringBuilder();
+        String header = String.format("%-40s%-40s%-40s%-40s\n", "LIB_NUMBER", "NAME", "EMAIL", "PHONE-NUMBER");
+        userDetails.append(header);
+        userDetails.append(user.userDetails());
+        return userDetails.toString();
     }
 }

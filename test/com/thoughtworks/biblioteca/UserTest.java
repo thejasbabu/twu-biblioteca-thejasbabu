@@ -55,7 +55,7 @@ public class UserTest {
     @Test
     public void shouldReturnDetailsOfUser() {
         User user = new User("LIB-1233", "Phew123", User.Role.CUSTOMER, "Ozzy", "Ozzy@gmail.com", "998898");
-        String userDetails = String.format("%-40s%-40s%-40s%-40s", "LIB-1233", "Ozzy", "Ozzy@gmail.com", "998898");
+        String userDetails = String.format("%-40s%-40s%-40s%-40s\n", "LIB-1233", "Ozzy", "Ozzy@gmail.com", "998898");
 
         assertEquals(userDetails, user.userDetails());
     }
