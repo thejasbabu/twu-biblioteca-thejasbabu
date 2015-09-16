@@ -20,9 +20,9 @@ public class Parser {
     public Options parse(String option) {
         if(option.equals("1"))
             return new ListBookOption(library, session);
-        else if(option.equals("2"))
+        else if(option.equals("2") && ruleCheck())
             return new CheckOutBookOption(display, input, library, session);
-        else if(option.equals("3"))
+        else if(option.equals("3") && ruleCheck())
             return new ReturnBookOption(display, input, library, session);
         else if(option.equals("4"))
             return new ExitOption();
@@ -34,5 +34,9 @@ public class Parser {
             return new LoginOption(userAccount, input, display, session);
         else
             return new InvalidOption();
+    }
+
+    private boolean ruleCheck() {
+        return !session.getUser().getRole().equals(User.Role.INVALID);
     }
 }
