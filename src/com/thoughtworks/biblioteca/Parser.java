@@ -32,6 +32,8 @@ public class Parser {
             return new CheckOutMovieOption(library, input, display, session);
         else if(option.equals("7"))
             return new LoginOption(userAccount, input, display, session);
+        else if(option.equals("8") && ruleCheck())
+            return new LogoutOption(session);
         else
             return new InvalidOption();
     }
