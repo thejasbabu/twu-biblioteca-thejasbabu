@@ -20,7 +20,7 @@ public class CheckOutBookOption implements Options {
         String enterNameMessage = "Enter the name of the book you want to checkout\n";
         display.display(enterNameMessage);
         String bookName = input.read();
-        if (library.checkOutBook(bookName))
+        if (library.checkOutBook(bookName, session))
             return "Thank you! Enjoy your book\n";
         else
             return "This book is not available\n";

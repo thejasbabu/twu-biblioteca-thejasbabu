@@ -5,6 +5,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.mock;
 
 public class LibraryTest {
 
@@ -27,8 +28,9 @@ public class LibraryTest {
         books.add(new Book("Inferno", "Dan Brown", "2001"));
         books.add(new Book("Gone girl", "Paulino", "2009"));
         Library library = new Library(books, movies);
+        Session session = mock(Session.class);
 
-        assertEquals(true, library.checkOutBook("Gone girl"));
+        assertEquals(true, library.checkOutBook("Gone girl", session));
     }
 
     @Test
@@ -38,8 +40,8 @@ public class LibraryTest {
         books.add(new Book("Inferno", "Dan Brown", "2001"));
         books.add(new Book("Gone girl", "Paulino", "2009"));
         Library library = new Library(books, movies);
-
-        assertEquals(false, library.checkOutBook("Next"));
+        Session session = mock(Session.class);
+        assertEquals(false, library.checkOutBook("Next", session));
     }
 
     @Test
@@ -49,10 +51,11 @@ public class LibraryTest {
         books.add(new Book("Inferno", "Dan Brown", "2001"));
         books.add(new Book("Next", "M.Crichton", "2009"));
         Library library = new Library(books, movies);
+        User user = new User("123-3333", "blah", User.Role.CUSTOMER);
+        Session session = new Session(user);
+        library.checkOutBook("Inferno", session);
 
-        library.checkOutBook("Inferno");
-
-        assertEquals(true, library.returnBook("Inferno"));
+        assertEquals(true, library.returnBook("Inferno", session));
     }
 
     @Test
@@ -62,8 +65,9 @@ public class LibraryTest {
         books.add(new Book("Inferno", "Dan Brown", "2001"));
         books.add(new Book("Next", "M.Crichton", "2009"));
         Library library = new Library(books, movies);
-
-        assertNotEquals(true, library.returnBook("Inferno"));
+        User user = new User("123-3333", "blah", User.Role.CUSTOMER);
+        Session session = new Session(user);
+        assertNotEquals(true, library.returnBook("Inferno", session));
     }
 
     @Test

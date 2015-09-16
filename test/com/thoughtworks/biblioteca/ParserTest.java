@@ -39,7 +39,6 @@ public class ParserTest {
         assertEquals(ExitOption.class, parser.parse("4").getClass());
     }
 
-
     @Test
     public void shouldReturnMovieListWhenUserEntersFive() {
         Display display = new Display(new PrintStream(System.out));

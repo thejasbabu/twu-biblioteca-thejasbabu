@@ -19,7 +19,7 @@ public class ReturnBookOption implements Options{
         String enterNameMessage = "Enter the name of the book you want to return\n";
         display.display(enterNameMessage);
         String bookName = input.read();
-        if (library.returnBook(bookName))
+        if (library.returnBook(bookName, session))
             return "Thank you for returning your book\n";
         else
             return "This is not a valid book to return\n";

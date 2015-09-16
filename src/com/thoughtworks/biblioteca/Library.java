@@ -2,16 +2,17 @@
 package com.thoughtworks.biblioteca;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Library {
     private ArrayList<Book> availableBooks;
-    private ArrayList<Book> checkedOutBooks;
+    private HashMap<Book, User> checkedOutBooks;
     private ArrayList<Movie> availableMovies;
 
     public Library(ArrayList<Book> availableBooks, ArrayList<Movie> availableMovies) {
         this.availableBooks = availableBooks;
         this.availableMovies = availableMovies;
-        checkedOutBooks = new ArrayList<Book>();
+        checkedOutBooks = new HashMap<Book, User>();
     }
 
     public String bookList() {
@@ -23,23 +24,23 @@ public class Library {
         return stringBuilder.toString();
     }
 
-    public boolean checkOutBook(String bookName) {
+    public boolean checkOutBook(String bookName, Session session) {
         Book searchBook = new Book(bookName, "", "");
         for(Book book : availableBooks) {
             if(book.equals(searchBook))
             {
                 availableBooks.remove(book);
-                checkedOutBooks.add(book);
+                checkedOutBooks.put(book, session.getUser());
                 return true;
             }
         }
         return false;
     }
 
-    public boolean returnBook(String bookName) {
+    public boolean returnBook(String bookName, Session session) {
         Book searchBook = new Book(bookName, "", "");
-        for(Book book : checkedOutBooks) {
-            if(book.equals(searchBook)){
+        for(Book book : checkedOutBooks.keySet()) {
+            if(book.equals(searchBook) && session.getUser().equals(checkedOutBooks.get(book))){
                 checkedOutBooks.remove(book);
                 availableBooks.add(book);
                 return true;
