@@ -3,6 +3,6 @@ package com.thoughtworks.biblioteca;
 
 public interface Options {
 
- public String execute(Session session);
+ public String execute();
 
 }

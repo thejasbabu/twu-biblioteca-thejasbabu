@@ -15,6 +15,6 @@ public class ExitOptionTest {
         ExitOption exitOption = new ExitOption();
         exit.expectSystemExitWithStatus(0);
 
-        exitOption.execute(new Session(new User("XXX", "XXX", User.Role.INVALID)));
+        exitOption.execute();
     }
 }

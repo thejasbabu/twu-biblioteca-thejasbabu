@@ -19,7 +19,8 @@ public class ParserTest {
         Library library = new Library(books, movies);
         Input input = new Input(new Scanner(System.in));
         UserAccount userAccount = mock(UserAccount.class);
-        Parser parser = new Parser(display, library, input, userAccount);
+        Session session = mock(Session.class);
+        Parser parser = new Parser(display, library, input, userAccount, session);
 
         assertEquals(ListBookOption.class, parser.parse("1").getClass());
     }
@@ -32,7 +33,8 @@ public class ParserTest {
         Library library = new Library(books, movies);
         Input input = new Input(new Scanner(System.in));
         UserAccount userAccount = mock(UserAccount.class);
-        Parser parser = new Parser(display, library, input, userAccount);
+        Session session = mock(Session.class);
+        Parser parser = new Parser(display, library, input, userAccount, session);
 
         assertEquals(InvalidOption.class, parser.parse("Biblioteca").getClass());
     }
@@ -45,7 +47,8 @@ public class ParserTest {
         Library library = new Library(books, movies);
         Input input = new Input(new Scanner(System.in));
         UserAccount userAccount = mock(UserAccount.class);
-        Parser parser = new Parser(display, library, input, userAccount);
+        Session session = mock(Session.class);
+        Parser parser = new Parser(display, library, input, userAccount, session);
 
         assertEquals(ExitOption.class, parser.parse("4").getClass());
     }
@@ -58,7 +61,8 @@ public class ParserTest {
         Library library = new Library(books, movies);
         Input input = new Input(new Scanner(System.in));
         UserAccount userAccount = mock(UserAccount.class);
-        Parser parser = new Parser(display, library, input, userAccount);
+        Session session = mock(Session.class);
+        Parser parser = new Parser(display, library, input, userAccount, session);
 
         assertEquals(CheckOutBookOption.class, parser.parse("2").getClass());
     }
@@ -71,7 +75,8 @@ public class ParserTest {
         Library library = new Library(books, movies);
         Input input = new Input(new Scanner(System.in));
         UserAccount userAccount = mock(UserAccount.class);
-        Parser parser = new Parser(display, library, input, userAccount);
+        Session session = mock(Session.class);
+        Parser parser = new Parser(display, library, input, userAccount, session);
 
         assertEquals(ReturnBookOption.class, parser.parse("3").getClass());
     }
@@ -84,7 +89,8 @@ public class ParserTest {
         Library library = new Library(books, movies);
         Input input = new Input(new Scanner(System.in));
         UserAccount userAccount = mock(UserAccount.class);
-        Parser parser = new Parser(display, library, input, userAccount);
+        Session session = mock(Session.class);
+        Parser parser = new Parser(display, library, input, userAccount, session);
 
         assertEquals(MovieListOption.class, parser.parse("5").getClass());
     }
@@ -97,7 +103,8 @@ public class ParserTest {
         Library library = new Library(books, movies);
         Input input = new Input(new Scanner(System.in));
         UserAccount userAccount = mock(UserAccount.class);
-        Parser parser = new Parser(display, library, input, userAccount);
+        Session session = mock(Session.class);
+        Parser parser = new Parser(display, library, input, userAccount, session);
 
         assertEquals(CheckOutMovieOption.class, parser.parse("6").getClass());
     }

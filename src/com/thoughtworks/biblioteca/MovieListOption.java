@@ -3,13 +3,15 @@ package com.thoughtworks.biblioteca;
 
 public class MovieListOption implements Options{
     private Library library;
+    private Session session;
 
-    public MovieListOption(Library library) {
+    public MovieListOption(Library library, Session session) {
         this.library = library;
+        this.session = session;
     }
 
     @Override
-    public String execute(Session session) {
+    public String execute() {
         String movieList;
         movieList = library.movieList();
         return movieList;

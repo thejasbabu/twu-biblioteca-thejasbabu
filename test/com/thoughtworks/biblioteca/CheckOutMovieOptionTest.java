@@ -16,12 +16,12 @@ public class CheckOutMovieOptionTest {
         Input input = mock(Input.class);
         Library library = mock(Library.class);
         Session session = mock(Session.class);
-        CheckOutMovieOption checkOutMovieOption = new CheckOutMovieOption(library, input, display);
+        CheckOutMovieOption checkOutMovieOption = new CheckOutMovieOption(library, input, display, session);
 
         when(input.read()).thenReturn("Interstellar");
         when(library.checkOutMovie("Interstellar")).thenReturn(true);
 
-        assertEquals("Thank you! Enjoy your movie\n", checkOutMovieOption.execute(session));
+        assertEquals("Thank you! Enjoy your movie\n", checkOutMovieOption.execute());
     }
 
     @Test
@@ -30,11 +30,11 @@ public class CheckOutMovieOptionTest {
         Input input = mock(Input.class);
         Library library = mock(Library.class);
         Session session = mock(Session.class);
-        CheckOutMovieOption checkOutMovieOption = new CheckOutMovieOption(library, input, display);
+        CheckOutMovieOption checkOutMovieOption = new CheckOutMovieOption(library, input, display, session);
 
         when(input.read()).thenReturn("Interstellar");
         when(library.checkOutMovie("Interstellar")).thenReturn(false);
 
-        assertEquals("This movie is not available\n", checkOutMovieOption.execute(session));
+        assertEquals("This movie is not available\n", checkOutMovieOption.execute());
     }
 }

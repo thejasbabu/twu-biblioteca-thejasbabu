@@ -10,7 +10,6 @@ public class InvalidOptionTest {
     @Test
     public void shouldReturnInvalidOptionMessageWhenExecuted() {
         InvalidOption invalidOption = new InvalidOption();
-        Session session = mock(Session.class);
-        assertEquals("Invalid Option\n", invalidOption.execute(session));
+        assertEquals("Invalid Option\n", invalidOption.execute());
     }
 }

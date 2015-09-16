@@ -15,11 +15,11 @@ public class LoginOptionTest {
         Display display = mock(Display.class);
         Session session = mock(Session.class);
         User user = new User("XXX", "XXX", User.Role.INVALID);
-        LoginOption loginOption = new LoginOption(userAccount, input, display);
+        LoginOption loginOption = new LoginOption(userAccount, input, display, session);
         when(input.read()).thenReturn("XXX", "meh");
         when(userAccount.authenticate("XXX", "meh")).thenReturn(user);
 
-        assertEquals("LoginOption UnSuccesful\n", loginOption.execute(session));
+        assertEquals("Login UnSuccesful\n", loginOption.execute());
     }
 
     @Test
@@ -29,10 +29,10 @@ public class LoginOptionTest {
         Display display = mock(Display.class);
         Session session = mock(Session.class);
         User user = new User("XXX", "XXX", User.Role.CUSTOMER);
-        LoginOption loginOption = new LoginOption(userAccount, input, display);
+        LoginOption loginOption = new LoginOption(userAccount, input, display, session);
         when(input.read()).thenReturn("XXX", "meh");
         when(userAccount.authenticate("XXX", "meh")).thenReturn(user);
 
-        assertEquals("LoginOption Succesful\n", loginOption.execute(session));
+        assertEquals("Login Succesful\n", loginOption.execute());
     }
 }

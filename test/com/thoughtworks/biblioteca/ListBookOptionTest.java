@@ -16,7 +16,7 @@ public class ListBookOptionTest {
           Library library = mock(Library.class);
           Session session = mock(Session.class);
           when(library.bookList()).thenReturn("Booklist Called");
-          ListBookOption listBookOption = new ListBookOption(library);
-          assertEquals("Booklist Called", listBookOption.execute(session));
+          ListBookOption listBookOption = new ListBookOption(library, session);
+          assertEquals("Booklist Called", listBookOption.execute());
     }
 }

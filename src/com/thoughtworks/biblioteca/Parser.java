@@ -7,29 +7,31 @@ public class Parser {
     private Library library;
     private Input input;
     private UserAccount userAccount;
+    private Session session;
 
-    public Parser(Display display, Library library, Input input, UserAccount userAccount) {
+    public Parser(Display display, Library library, Input input, UserAccount userAccount, Session session) {
         this.display = display;
         this.library = library;
         this.input = input;
         this.userAccount = userAccount;
+        this.session = session;
     }
 
     public Options parse(String option) {
         if(option.equals("1"))
-            return new ListBookOption(library);
+            return new ListBookOption(library, session);
         else if(option.equals("2"))
-            return new CheckOutBookOption(display, input, library);
+            return new CheckOutBookOption(display, input, library, session);
         else if(option.equals("3"))
-            return new ReturnBookOption(display, input, library);
+            return new ReturnBookOption(display, input, library, session);
         else if(option.equals("4"))
             return new ExitOption();
         else if(option.equals("5"))
-            return new MovieListOption(library);
+            return new MovieListOption(library, session);
         else if(option.equals("6"))
-            return new CheckOutMovieOption(library, input, display);
+            return new CheckOutMovieOption(library, input, display, session);
         else if(option.equals("7"))
-            return new LoginOption(userAccount, input, display);
+            return new LoginOption(userAccount, input, display, session);
         else
             return new InvalidOption();
     }

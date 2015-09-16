@@ -12,9 +12,9 @@ public class MovieListOptionTest {
     public void shouldReturnListOfMoviesInTheLibrary() {
         Library library = mock(Library.class);
         Session session = mock(Session.class);
-        MovieListOption movieListOption = new MovieListOption(library);
+        MovieListOption movieListOption = new MovieListOption(library, session);
         when(library.movieList()).thenReturn("movieList called");
 
-        assertEquals("movieList called", movieListOption.execute(session));
+        assertEquals("movieList called", movieListOption.execute());
     }
 }

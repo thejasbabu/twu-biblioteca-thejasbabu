@@ -4,13 +4,15 @@ package com.thoughtworks.biblioteca;
 public class ListBookOption implements Options{
 
     private Library library;
+    private Session session;
 
-    public ListBookOption(Library library) {
+    public ListBookOption(Library library, Session session) {
         this.library = library;
+        this.session = session;
     }
 
     @Override
-    public String execute(Session session) {
+    public String execute() {
         String listOfBooks;
         listOfBooks = library.bookList();
         return listOfBooks;

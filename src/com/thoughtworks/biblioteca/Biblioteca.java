@@ -1,4 +1,4 @@
-// Biblioteca class displays the welcome message and contains list of books
+// Biblioteca class displays the welcome message and list of menu items
 package com.thoughtworks.biblioteca;
 
 public class Biblioteca {
@@ -28,11 +28,15 @@ public class Biblioteca {
     void run() {
         User user = session.getUser();
         if(user.getRole().equals(User.Role.INVALID)) {
-
+            display.display(menu.invalidMenu());
         }
-        display.display(menu.toString());
+        else if(user.getRole().equals(User.Role.CUSTOMER)) {
+            display.display(menu.customerMenu());
+        }
+        else
+           display.display(menu.librarianMenu());
         Options option = parser.parse(input.read());
-        String displayMessage = option.execute(session);
+        String displayMessage = option.execute();
         display.display(displayMessage);
     }
 }

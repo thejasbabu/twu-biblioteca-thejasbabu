@@ -16,12 +16,12 @@ public class ReturnBookOptionTest {
         Input input = mock(Input.class);
         Library library = mock(Library.class);
         Session session = mock(Session.class);
-        ReturnBookOption returnBookOption = new ReturnBookOption(display, input, library);
+        ReturnBookOption returnBookOption = new ReturnBookOption(display, input, library, session);
 
         when(input.read()).thenReturn("Inferno");
         when(library.returnBook("Inferno")).thenReturn(true);
 
-        assertEquals("Thank you for returning your book\n", returnBookOption.execute(session));
+        assertEquals("Thank you for returning your book\n", returnBookOption.execute());
     }
 
     @Test
@@ -30,11 +30,11 @@ public class ReturnBookOptionTest {
         Input input = mock(Input.class);
         Library library = mock(Library.class);
         Session session = mock(Session.class);
-        ReturnBookOption returnBookOption = new ReturnBookOption(display, input, library);
+        ReturnBookOption returnBookOption = new ReturnBookOption(display, input, library, session);
 
         when(input.read()).thenReturn("Inferno");
         when(library.returnBook("Inferno")).thenReturn(false);
 
-        assertEquals("This is not a valid book to return\n", returnBookOption.execute(session));
+        assertEquals("This is not a valid book to return\n", returnBookOption.execute());
     }
 }
