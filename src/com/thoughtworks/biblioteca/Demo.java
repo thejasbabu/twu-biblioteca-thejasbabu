@@ -30,6 +30,7 @@ public class Demo {
         customerItems.add("5. List Movie");
         customerItems.add("6. Checkout Movie");
         customerItems.add("8. Logout");
+        customerItems.add("10. User Details");
         ArrayList<String> librarianItems = new ArrayList<String>();
         librarianItems.add("1. List Book");
         librarianItems.add("2. Checkout Book");

@@ -36,6 +36,8 @@ public class Parser {
             return new LogoutOption(session);
         else if(option.equals("9") && (session.getUser().getRole().equals(User.Role.LIBRARIAN)))
             return new BookDetailsOption(session, library);
+        else if(option.equals("10") && (session.getUser().getRole().equals(User.Role.CUSTOMER)))
+            return new UserDetailsOption(session.getUser());
         else
             return new InvalidOption();
     }
