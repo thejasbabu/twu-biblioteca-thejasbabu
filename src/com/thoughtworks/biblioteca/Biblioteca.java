@@ -6,15 +6,15 @@ public class Biblioteca {
     private Display display;
     private Input input;
     private Parser parser;
-    private Menu menu;
+    private MenuFactory menuFactory;
     private Session session;
 
 
-    public Biblioteca(Display display, Input input, Parser parser, Menu menu, Session session) {
+    public Biblioteca(Display display, Input input, Parser parser, MenuFactory menuFactory, Session session) {
         this.display = display;
         this.input = input;
         this.parser = parser;
-        this.menu = menu;
+        this.menuFactory = menuFactory;
         this.session = session;
     }
 
@@ -27,7 +27,8 @@ public class Biblioteca {
 
     void run() {
         User user = session.getUser();
-        /// Menu factory
+        Menu menu = menuFactory.getMenu(user.getRole());
+        display.display(menu.toString());
         Options option = parser.parse(input.read());
         String displayMessage = option.execute();
         display.display(displayMessage);
