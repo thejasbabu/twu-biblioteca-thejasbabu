@@ -108,4 +108,18 @@ public class ParserTest {
 
         assertEquals(LogoutOption.class, parser.parse("8").getClass());
     }
+
+    @Test
+    public void shouldReturnBookDetailsOptionWhenLibrarianSelectsOptionNine() {
+        Display display = new Display(new PrintStream(System.out));
+        ArrayList<Book> books = new ArrayList<Book>();
+        ArrayList<Movie> movies = new ArrayList<Movie>();
+        Library library = new Library(books, movies);
+        Input input = new Input(new Scanner(System.in));
+        UserAccount userAccount = mock(UserAccount.class);
+        Session session = new Session(new User("123-3333", "blah", User.Role.LIBRARIAN));
+        Parser parser = new Parser(display, library, input, userAccount, session);
+
+        assertEquals(BookDetailsOption.class, parser.parse("9").getClass());
+    }
 }
