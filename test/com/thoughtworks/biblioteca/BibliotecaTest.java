@@ -14,7 +14,7 @@ public class BibliotecaTest {
         Input input = mock(Input.class);
         Parser parser = mock(Parser.class);
         ListBookOption listBookOption = mock(ListBookOption.class);
-        Session session = new Session(new User("123-333", "blah", User.Role.CUSTOMER));
+        Session session = new Session(new User("123-333", "blah", User.Role.CUSTOMER, "Osbourne", "Os@gmail.com", "099899"));
         Biblioteca biblioteca = new Biblioteca(display, input, parser, menu, session);
         when(menu.customerMenu()).thenReturn("Customer Menu Called");
         when(input.read()).thenReturn("1");
@@ -33,7 +33,7 @@ public class BibliotecaTest {
         Input input = mock(Input.class);
         Parser parser = mock(Parser.class);
         ListBookOption listBookOption = mock(ListBookOption.class);
-        Session session = new Session(new User("123-333", "blah", User.Role.LIBRARIAN));
+        Session session = new Session(new User("123-333", "blah", User.Role.LIBRARIAN, "Osbourne", "Os@gmail.com", "099899"));
         Biblioteca biblioteca = new Biblioteca(display, input, parser, menu, session);
         when(menu.librarianMenu()).thenReturn("Libraian Menu Called");
         when(input.read()).thenReturn("1");
@@ -52,7 +52,7 @@ public class BibliotecaTest {
         Input input = mock(Input.class);
         Parser parser = mock(Parser.class);
         ListBookOption listBookOption = mock(ListBookOption.class);
-        Session session = new Session(new User("123-333", "blah", User.Role.INVALID));
+        Session session = new Session(new User("123-333", "blah", User.Role.INVALID, "Osbourne", "Os@gmail.com", "099899"));
         Biblioteca biblioteca = new Biblioteca(display, input, parser, menu, session);
         when(menu.invalidMenu()).thenReturn("Invalid Menu Called");
         when(input.read()).thenReturn("1");
@@ -72,7 +72,7 @@ public class BibliotecaTest {
         Input input = mock(Input.class);
         Parser parser = mock(Parser.class);
         InvalidOption invalidOption = mock(InvalidOption.class);
-        Session session = new Session(new User("123-333", "blah", User.Role.INVALID));
+        Session session = new Session(new User("123-333", "blah", User.Role.INVALID, "Osbourne", "Os@gmail.com", "099899"));
         Biblioteca biblioteca = new Biblioteca(display, input, parser, menu, session);
         when(input.read()).thenReturn("Biblioteca");
         when(parser.parse("Biblioteca")).thenReturn(invalidOption);
@@ -88,7 +88,7 @@ public class BibliotecaTest {
         Input input = mock(Input.class);
         Parser parser = mock(Parser.class);
         ExitOption exitOption = mock(ExitOption.class);
-        Session session = new Session(new User("123-333", "blah", User.Role.INVALID));
+        Session session = new Session(new User("123-333", "blah", User.Role.INVALID, "Osbourne", "Os@gmail.com", "099899"));
         Biblioteca biblioteca = new Biblioteca(display, input, parser, menu, session);
         when(input.read()).thenReturn("4");
         when(parser.parse("4")).thenReturn(exitOption);
@@ -104,7 +104,7 @@ public class BibliotecaTest {
         Input input = mock(Input.class);
         Parser parser = mock(Parser.class);
         CheckOutBookOption checkOutBookOption = mock(CheckOutBookOption.class);
-        Session session = new Session(new User("123-333", "blah", User.Role.INVALID));
+        Session session = new Session(new User("123-333", "blah", User.Role.INVALID, "Osbourne", "Os@gmail.com", "099899"));
         Biblioteca biblioteca = new Biblioteca(display, input, parser, menu, session);
         when(input.read()).thenReturn("2");
         when(parser.parse("2")).thenReturn(checkOutBookOption);
@@ -120,7 +120,7 @@ public class BibliotecaTest {
         Input input = mock(Input.class);
         Parser parser = mock(Parser.class);
         ReturnBookOption returnBookOption = mock(ReturnBookOption.class);
-        Session session = new Session(new User("123-333", "blah", User.Role.INVALID));
+        Session session = new Session(new User("123-333", "blah", User.Role.INVALID, "Osbourne", "Os@gmail.com", "099899"));
         Biblioteca biblioteca = new Biblioteca(display, input, parser, menu, session);
         when(input.read()).thenReturn("3");
         when(parser.parse("3")).thenReturn(returnBookOption);

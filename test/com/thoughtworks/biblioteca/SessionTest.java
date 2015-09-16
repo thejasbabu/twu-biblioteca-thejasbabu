@@ -8,7 +8,7 @@ public class SessionTest {
 
     @Test
     public void shouldRetrunTheUserObjectWhenGetUserIsCalled() {
-        User user = new User("123-1234", "Bleh", User.Role.CUSTOMER);
+        User user = new User("123-1234", "Bleh", User.Role.CUSTOMER, "Osbourne", "Os@gmail.com", "099899");
         Session session = new Session(user);
 
         assertEquals(user, session.getUser());

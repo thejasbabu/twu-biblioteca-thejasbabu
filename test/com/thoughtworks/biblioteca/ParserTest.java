@@ -19,7 +19,7 @@ public class ParserTest {
         Library library = new Library(books, movies);
         Input input = new Input(new Scanner(System.in));
         UserAccount userAccount = mock(UserAccount.class);
-        Session session = new Session(new User("123-3333", "blah", User.Role.CUSTOMER));
+        Session session = new Session(new User("123-3333", "blah", User.Role.CUSTOMER, "Osbourne", "Os@gmail.com", "099899"));
         Parser parser = new Parser(display, library, input, userAccount, session);
 
         assertEquals(InvalidOption.class, parser.parse("Biblioteca").getClass());
@@ -33,7 +33,7 @@ public class ParserTest {
         Library library = new Library(books, movies);
         Input input = new Input(new Scanner(System.in));
         UserAccount userAccount = mock(UserAccount.class);
-        Session session = new Session(new User("123-3333", "blah", User.Role.CUSTOMER));
+        Session session = new Session(new User("123-3333", "blah", User.Role.CUSTOMER, "Osbourne", "Os@gmail.com", "099899"));
         Parser parser = new Parser(display, library, input, userAccount, session);
 
         assertEquals(ExitOption.class, parser.parse("4").getClass());
@@ -75,7 +75,7 @@ public class ParserTest {
         Library library = new Library(books, movies);
         Input input = new Input(new Scanner(System.in));
         UserAccount userAccount = mock(UserAccount.class);
-        Session session = new Session(new User("123-3333", "blah", User.Role.INVALID));
+        Session session = new Session(new User("123-3333", "blah", User.Role.INVALID, "Osbourne", "Os@gmail.com", "099899"));
         Parser parser = new Parser(display, library, input, userAccount, session);
 
         assertEquals(InvalidOption.class, parser.parse("2").getClass());
@@ -89,7 +89,7 @@ public class ParserTest {
         Library library = new Library(books, movies);
         Input input = new Input(new Scanner(System.in));
         UserAccount userAccount = mock(UserAccount.class);
-        Session session = new Session(new User("123-3333", "blah", User.Role.INVALID));
+        Session session = new Session(new User("123-3333", "blah", User.Role.INVALID, "Osbourne", "Os@gmail.com", "099899"));
         Parser parser = new Parser(display, library, input, userAccount, session);
 
         assertEquals(InvalidOption.class, parser.parse("3").getClass());
@@ -103,7 +103,7 @@ public class ParserTest {
         Library library = new Library(books, movies);
         Input input = new Input(new Scanner(System.in));
         UserAccount userAccount = mock(UserAccount.class);
-        Session session = new Session(new User("123-3333", "blah", User.Role.CUSTOMER));
+        Session session = new Session(new User("123-3333", "blah", User.Role.CUSTOMER, "Osbourne", "Os@gmail.com", "099899"));
         Parser parser = new Parser(display, library, input, userAccount, session);
 
         assertEquals(LogoutOption.class, parser.parse("8").getClass());
@@ -117,7 +117,7 @@ public class ParserTest {
         Library library = new Library(books, movies);
         Input input = new Input(new Scanner(System.in));
         UserAccount userAccount = mock(UserAccount.class);
-        Session session = new Session(new User("123-3333", "blah", User.Role.LIBRARIAN));
+        Session session = new Session(new User("123-3333", "blah", User.Role.LIBRARIAN, "Osbourne", "Os@gmail.com", "099899"));
         Parser parser = new Parser(display, library, input, userAccount, session);
 
         assertEquals(BookDetailsOption.class, parser.parse("9").getClass());
@@ -131,9 +131,23 @@ public class ParserTest {
         Library library = new Library(books, movies);
         Input input = new Input(new Scanner(System.in));
         UserAccount userAccount = mock(UserAccount.class);
-        Session session = new Session(new User("123-3333", "blah", User.Role.CUSTOMER));
+        Session session = new Session(new User("123-3333", "blah", User.Role.CUSTOMER, "Osbourne", "Os@gmail.com", "099899"));
         Parser parser = new Parser(display, library, input, userAccount, session);
 
         assertEquals(InvalidOption.class, parser.parse("9").getClass());
+    }
+
+    @Test
+    public void shouldReturnBookListOptionWhenUserSelectsOptionOne() {
+        Display display = new Display(new PrintStream(System.out));
+        ArrayList<Book> books = new ArrayList<Book>();
+        ArrayList<Movie> movies = new ArrayList<Movie>();
+        Library library = new Library(books, movies);
+        Input input = new Input(new Scanner(System.in));
+        UserAccount userAccount = mock(UserAccount.class);
+        Session session = mock(Session.class);
+        Parser parser = new Parser(display, library, input, userAccount, session);
+
+        assertEquals(ListBookOption.class, parser.parse("1").getClass());
     }
 }

@@ -15,7 +15,7 @@ public class LogoutOption implements Options{
     }
 
      User getNewUser() {
-        User user = new User("XXX", "XXX", User.Role.INVALID);
+        User user = new User("XXX", "XXX", User.Role.INVALID, "", "", "");
         return user;
     }
 }

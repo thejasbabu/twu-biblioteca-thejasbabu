@@ -42,12 +42,12 @@ public class Demo {
 
         Menu menu = new Menu(defaultItems, customerItems, librarianItems);
         Library library = new Library(books, movies);
-        User user = new User("XXX", "XXX", User.Role.INVALID);
+        User user = new User("XXX", "XXX", User.Role.INVALID, "", "", "");
         Session session = new Session(user);
         ArrayList<User> users = new ArrayList<User>();
-        users.add(new User("123-3333", "blah", User.Role.CUSTOMER));
-        users.add(new User("123-3334", "blah1", User.Role.CUSTOMER));
-        users.add(new User("123-3335", "blah2", User.Role.LIBRARIAN));
+        users.add(new User("123-3333", "blah", User.Role.CUSTOMER, "Ozzy", "Ozzy@gmail.com", "0998999"));
+        users.add(new User("123-3334", "blah1", User.Role.CUSTOMER, "Osbourne", "Os@gmail.com", "0993399"));
+        users.add(new User("123-3335", "blah2", User.Role.LIBRARIAN, "Django", "django@gmail.com", "5509989"));
         UserAccount userAccount = new UserAccount(users);
         Parser parser = new Parser(display, library, input, userAccount, session);
         Biblioteca biblioteca = new Biblioteca(display, input, parser, menu, session);

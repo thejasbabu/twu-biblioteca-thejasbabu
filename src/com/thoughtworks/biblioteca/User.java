@@ -3,20 +3,31 @@ package com.thoughtworks.biblioteca;
 
 public class User {
     private String password;
-    private String username;
+    private String libraryNumber;
     public enum Role {CUSTOMER, LIBRARIAN, INVALID};
     private Role userRole;
+    private String userName;
+    private String email;
+    private String phoneNumber;
 
 
-    public User(String username, String password, Role userRole ) {
+    public User(String libraryNumber, String password, Role userRole, String userName, String email, String phoneNumber) {
         this.password = password;
-        this.username = username;
+        this.libraryNumber = libraryNumber;
         this.userRole = userRole;
+        this.userName = userName;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String userDetails() {
+        String userDetails = String.format("%-40s%-40s%-40s%-40s", libraryNumber, userName, email, phoneNumber);
+        return userDetails;
     }
 
     @Override
     public String toString() {
-        return this.username;
+        return this.libraryNumber;
     }
 
     @Override
@@ -26,12 +37,12 @@ public class User {
 
         User user = (User) o;
 
-        return !(username != null ? !username.equals(user.username) : user.username != null);
+        return !(libraryNumber != null ? !libraryNumber.equals(user.libraryNumber) : user.libraryNumber != null);
     }
 
     @Override
     public int hashCode() {
-        return username != null ? username.hashCode() : 0;
+        return libraryNumber != null ? libraryNumber.hashCode() : 0;
     }
 
     public Role getRole() {

@@ -51,7 +51,7 @@ public class LibraryTest {
         books.add(new Book("Inferno", "Dan Brown", "2001"));
         books.add(new Book("Next", "M.Crichton", "2009"));
         Library library = new Library(books, movies);
-        User user = new User("123-3333", "blah", User.Role.CUSTOMER);
+        User user = new User("123-3333", "blah", User.Role.CUSTOMER, "Osbourne", "Os@gmail.com", "099899");
         Session session = new Session(user);
         library.checkOutBook("Inferno", session);
 
@@ -65,7 +65,7 @@ public class LibraryTest {
         books.add(new Book("Inferno", "Dan Brown", "2001"));
         books.add(new Book("Next", "M.Crichton", "2009"));
         Library library = new Library(books, movies);
-        User user = new User("123-3333", "blah", User.Role.CUSTOMER);
+        User user = new User("123-3333", "blah", User.Role.CUSTOMER, "Osbourne", "Os@gmail.com", "099899");
         Session session = new Session(user);
         assertNotEquals(true, library.returnBook("Inferno", session));
     }
@@ -110,7 +110,7 @@ public class LibraryTest {
         books.add(new Book("Inferno", "Dan Brown", "2001"));
         books.add(new Book("Next", "M.Crichton", "2009"));
         Library library = new Library(books, movies);
-        User user = new User("123-3333", "blah", User.Role.CUSTOMER);
+        User user = new User("123-3333", "blah", User.Role.CUSTOMER, "Osbourne", "Os@gmail.com", "099899");
         Session session = new Session(user);
         library.checkOutBook("Inferno", session);
 

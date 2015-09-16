@@ -11,10 +11,10 @@ public class UserAccountTest {
     @Test
     public void shouldReturnUserObjectWithCustomerRoleWhenAValidCutomerIsLoggedIn() {
         ArrayList<User> users = new ArrayList<User>();
-        users.add(new User("123-1234", "Meh123", User.Role.CUSTOMER));
-        users.add(new User("123-1235", "Meh1234", User.Role.LIBRARIAN));
+        users.add(new User("123-1234", "Meh123", User.Role.CUSTOMER, "Osbourne", "Os@gmail.com", "099899"));
+        users.add(new User("123-1235", "Meh1234", User.Role.LIBRARIAN, "Osbourne", "Os@gmail.com", "099899"));
         UserAccount userAccount = new UserAccount(users);
-        User user = new User("123-1234", "Meh123", User.Role.CUSTOMER);
+        User user = new User("123-1234", "Meh123", User.Role.CUSTOMER, "Osbourne", "Os@gmail.com", "099899");
 
         assertEquals(user, userAccount.authenticate("123-1234", "Meh123"));
     }
@@ -22,10 +22,10 @@ public class UserAccountTest {
     @Test
     public void shouldReturnUserObjectWithLibrarianRoleWhenValidLibrarianIsLoggedIn() {
         ArrayList<User> users = new ArrayList<User>();
-        users.add(new User("123-1234", "Meh123", User.Role.CUSTOMER));
-        users.add(new User("123-1235", "Meh1234", User.Role.LIBRARIAN));
+        users.add(new User("123-1234", "Meh123", User.Role.CUSTOMER, "Osbourne", "Os@gmail.com", "099899"));
+        users.add(new User("123-1235", "Meh1234", User.Role.LIBRARIAN, "Osbourne", "Os@gmail.com", "099899"));
         UserAccount userAccount = new UserAccount(users);
-        User user = new User("123-1235", "Meh1234", User.Role.LIBRARIAN);
+        User user = new User("123-1235", "Meh1234", User.Role.LIBRARIAN, "Osbourne", "Os@gmail.com", "099899");
 
         assertEquals(user, userAccount.authenticate("123-1235", "Meh1234"));
     }
@@ -33,10 +33,10 @@ public class UserAccountTest {
     @Test
     public void shouldReturnUserObejctWithInvalidRoleWhenSomeGuestISLoggedIn() {
         ArrayList<User> users = new ArrayList<User>();
-        users.add(new User("123-1234", "Meh123", User.Role.CUSTOMER));
-        users.add(new User("123-1235", "Meh1234", User.Role.LIBRARIAN));
+        users.add(new User("123-1234", "Meh123", User.Role.CUSTOMER, "Osbourne", "Os@gmail.com", "099899"));
+        users.add(new User("123-1235", "Meh1234", User.Role.LIBRARIAN, "Osbourne", "Os@gmail.com", "099899"));
         UserAccount userAccount = new UserAccount(users);
-        User user = new User("123-1236", "Meh1235", User.Role.INVALID);
+        User user = new User("123-1236", "Meh1235", User.Role.INVALID, "Osbourne", "Os@gmail.com", "099899");
 
         assertEquals(user, userAccount.authenticate("123-1236", "Meh1235"));
     }

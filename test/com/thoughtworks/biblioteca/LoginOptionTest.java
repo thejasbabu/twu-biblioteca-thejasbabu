@@ -14,7 +14,7 @@ public class LoginOptionTest {
         Input input = mock(Input.class);
         Display display = mock(Display.class);
         Session session = mock(Session.class);
-        User user = new User("XXX", "XXX", User.Role.INVALID);
+        User user = new User("XXX", "XXX", User.Role.INVALID, "Osbourne", "Os@gmail.com", "099899");
         LoginOption loginOption = new LoginOption(userAccount, input, display, session);
         when(input.read()).thenReturn("XXX", "meh");
         when(userAccount.authenticate("XXX", "meh")).thenReturn(user);
@@ -28,7 +28,7 @@ public class LoginOptionTest {
         Input input = mock(Input.class);
         Display display = mock(Display.class);
         Session session = mock(Session.class);
-        User user = new User("XXX", "XXX", User.Role.CUSTOMER);
+        User user = new User("XXX", "XXX", User.Role.CUSTOMER, "Osbourne", "Os@gmail.com", "099899");
         LoginOption loginOption = new LoginOption(userAccount, input, display, session);
         when(input.read()).thenReturn("XXX", "meh");
         when(userAccount.authenticate("XXX", "meh")).thenReturn(user);

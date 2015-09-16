@@ -19,7 +19,7 @@ public class LogoutOptionTest {
 
     @Test
     public void shouldSetTheUserToInvalidUserWhenLogoutSuccessfulIsCalled() {
-        User user = new User("XXX", "XXX", User.Role.INVALID);
+        User user = new User("XXX", "XXX", User.Role.INVALID, "Osbourne", "Os@gmail.com", "099899");
         Session session = mock(Session.class);
         LogoutOption logoutOption = new LogoutOption(session);
 

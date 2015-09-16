@@ -12,7 +12,7 @@ public class UserAccount {
     }
 
     public User authenticate(String userName, String password) {
-        User newUser = new User(userName, password, User.Role.INVALID);
+        User newUser = new User(userName, password, User.Role.INVALID, "", "", "");
         for (User user : users) {
             if(user.equals(newUser))
             {
