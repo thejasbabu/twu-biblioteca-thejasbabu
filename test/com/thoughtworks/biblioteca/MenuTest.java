@@ -31,10 +31,10 @@ public class MenuTest {
         customerMenu.add("2. Checkout Book");
         customerMenu.add("3. Checkin Book");
         customerMenu.add("4. Exit");
-        customerMenu.add("5. Logout");
+        customerMenu.add("5. LogoutOption");
         Menu menu = new Menu(invalidMenu, customerMenu, librarian);
 
-        assertEquals("1. List Book\n2. Checkout Book\n3. Checkin Book\n4. Exit\n5. Logout\n", menu.customerMenu());
+        assertEquals("1. List Book\n2. Checkout Book\n3. Checkin Book\n4. Exit\n5. LogoutOption\n", menu.customerMenu());
     }
 
     @Test
@@ -47,9 +47,9 @@ public class MenuTest {
         librarian.add("3. Checkin Book");
         librarian.add("4. Checkout Movie");
         librarian.add("5. Exit");
-        librarian.add("6. Logout");
+        librarian.add("6. LogoutOption");
         Menu menu = new Menu(invalidMenu, customerMenu, librarian);
 
-        assertEquals("1. List Book\n2. Checkout Book\n3. Checkin Book\n4. Checkout Movie\n5. Exit\n6. Logout\n", menu.librarianMenu());
+        assertEquals("1. List Book\n2. Checkout Book\n3. Checkin Book\n4. Checkout Movie\n5. Exit\n6. LogoutOption\n", menu.librarianMenu());
     }
 }
