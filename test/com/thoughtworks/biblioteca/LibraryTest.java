@@ -102,4 +102,20 @@ public class LibraryTest {
 
         assertEquals(false, library.checkOutMovie("Next"));
     }
+
+    @Test
+    public void shouldReturnBookDetailsInColumnarFashion() {
+        ArrayList<Book> books = new ArrayList<Book>();
+        ArrayList<Movie> movies = new ArrayList<Movie>();
+        books.add(new Book("Inferno", "Dan Brown", "2001"));
+        books.add(new Book("Next", "M.Crichton", "2009"));
+        Library library = new Library(books, movies);
+        User user = new User("123-3333", "blah", User.Role.CUSTOMER);
+        Session session = new Session(user);
+        library.checkOutBook("Inferno", session);
+
+        String header = String.format("%-20s%-40s%-40s%-40s\n", "LIB-NUMBER", "NAME", "AUTHOR", "YEAR");
+        String line = String.format("%-20s%-40s%-40s%-40s\n","123-3333", "Inferno", "Dan Brown", "2001");
+        assertEquals(header + line, library.bookDetails());
+    }
 }

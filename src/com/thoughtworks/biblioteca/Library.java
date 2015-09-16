@@ -69,4 +69,19 @@ public class Library {
         }
         return false;
     }
+
+    public String bookDetails() {
+        StringBuilder bookDetails = new StringBuilder();
+        String header = String.format("%-20s%-40s%-40s%-40s\n","LIB-NUMBER", "NAME", "AUTHOR", "YEAR");
+        bookDetails.append(header);
+
+        for(Book book : checkedOutBooks.keySet()) {
+            String userNumber = checkedOutBooks.get(book).toString();
+            String bookName = book.toString();
+            String lineOfDetail = String.format("%-20s%-40s", userNumber, bookName);
+            bookDetails.append(lineOfDetail);
+        }
+
+        return bookDetails.toString();
+    }
 }
