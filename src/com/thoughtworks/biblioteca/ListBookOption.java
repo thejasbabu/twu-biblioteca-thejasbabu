@@ -4,11 +4,9 @@ package com.thoughtworks.biblioteca;
 public class ListBookOption implements Options{
 
     private Library library;
-    private Session session;
 
-    public ListBookOption(Library library, Session session) {
+    public ListBookOption(Library library) {
         this.library = library;
-        this.session = session;
     }
 
     @Override

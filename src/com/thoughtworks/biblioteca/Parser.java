@@ -19,7 +19,7 @@ public class Parser {
 
     public Options parse(String option) {
         if(option.equals("1"))
-            return new ListBookOption(library, session);
+            return new ListBookOption(library);
         else if(option.equals("2") && ruleCheck())
             return new CheckOutBookOption(display, input, library, session);
         else if(option.equals("3") && ruleCheck())

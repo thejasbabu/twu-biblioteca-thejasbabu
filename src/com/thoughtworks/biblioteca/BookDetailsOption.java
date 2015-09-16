@@ -1,3 +1,4 @@
+// BookDetailsOption class returns book details
 package com.thoughtworks.biblioteca;
 
 public class BookDetailsOption implements Options{
