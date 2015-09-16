@@ -41,7 +41,7 @@ public class Demo {
         librarianItems.add("8. Logout");
         librarianItems.add("9. Book details");
 
-        Menu menu = new Menu(defaultItems, customerItems, librarianItems);
+        Menu menu = new Menu(defaultItems);
         Library library = new Library(books, movies);
         User user = new User("XXX", "XXX", User.Role.INVALID, "", "", "");
         Session session = new Session(user);

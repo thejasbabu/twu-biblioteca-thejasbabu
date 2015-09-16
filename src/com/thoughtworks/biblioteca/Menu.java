@@ -4,37 +4,18 @@ package com.thoughtworks.biblioteca;
 import java.util.ArrayList;
 
 public class Menu {
-    private ArrayList<String> invalidMenuItems;
-    private ArrayList<String> customerMenuItems;
-    private ArrayList<String> librarianMenuItems;
+    private ArrayList<String> menuItems;
 
 
-    public Menu(ArrayList<String> invalidMenuItems, ArrayList<String> customerMenuItems, ArrayList<String> librarianMenuItems) {
-        this.invalidMenuItems = invalidMenuItems;
-        this.customerMenuItems = customerMenuItems;
-        this.librarianMenuItems = librarianMenuItems;
+
+    public Menu(ArrayList<String> menuItems) {
+        this.menuItems = menuItems;
     }
 
-
-    public String invalidMenu() {
+    @Override
+    public String toString() {
         String menu = "";
-        for(String menuOption : invalidMenuItems) {
-            menu += menuOption + "\n";
-        }
-        return menu;
-    }
-
-    public String customerMenu() {
-        String menu = "";
-        for(String menuOption : customerMenuItems) {
-            menu += menuOption + "\n";
-        }
-        return menu;
-    }
-
-    public String librarianMenu() {
-        String menu = "";
-        for(String menuOption : librarianMenuItems) {
+        for(String menuOption : menuItems) {
             menu += menuOption + "\n";
         }
         return menu;

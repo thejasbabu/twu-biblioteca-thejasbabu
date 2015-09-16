@@ -16,7 +16,7 @@ public class BibliotecaTest {
         ListBookOption listBookOption = mock(ListBookOption.class);
         Session session = new Session(new User("123-333", "blah", User.Role.CUSTOMER, "Osbourne", "Os@gmail.com", "099899"));
         Biblioteca biblioteca = new Biblioteca(display, input, parser, menu, session);
-        when(menu.customerMenu()).thenReturn("Customer Menu Called");
+        when(menu.toString()).thenReturn("Customer Menu Called");
         when(input.read()).thenReturn("1");
         when(parser.parse("1")).thenReturn(listBookOption);
         when(listBookOption.execute()).thenReturn("listBookOption Called");
@@ -35,7 +35,7 @@ public class BibliotecaTest {
         ListBookOption listBookOption = mock(ListBookOption.class);
         Session session = new Session(new User("123-333", "blah", User.Role.LIBRARIAN, "Osbourne", "Os@gmail.com", "099899"));
         Biblioteca biblioteca = new Biblioteca(display, input, parser, menu, session);
-        when(menu.librarianMenu()).thenReturn("Libraian Menu Called");
+        when(menu.toString()).thenReturn("Libraian Menu Called");
         when(input.read()).thenReturn("1");
         when(parser.parse("1")).thenReturn(listBookOption);
         when(listBookOption.execute()).thenReturn("listBookOption Called");
@@ -54,7 +54,7 @@ public class BibliotecaTest {
         ListBookOption listBookOption = mock(ListBookOption.class);
         Session session = new Session(new User("123-333", "blah", User.Role.INVALID, "Osbourne", "Os@gmail.com", "099899"));
         Biblioteca biblioteca = new Biblioteca(display, input, parser, menu, session);
-        when(menu.invalidMenu()).thenReturn("Invalid Menu Called");
+        when(menu.toString()).thenReturn("Invalid Menu Called");
         when(input.read()).thenReturn("1");
         when(parser.parse("1")).thenReturn(listBookOption);
         when(listBookOption.execute()).thenReturn("List Book Option");

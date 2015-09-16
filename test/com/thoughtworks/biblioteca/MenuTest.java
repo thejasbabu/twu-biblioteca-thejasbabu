@@ -17,9 +17,9 @@ public class MenuTest {
         invalidMenu.add("2. Checkout Movie");
         invalidMenu.add("3. Login");
         invalidMenu.add("4. Exit");
-        Menu menu = new Menu(invalidMenu, customerMenu, librarian);
+        Menu menu = new Menu(invalidMenu);
 
-        assertEquals("1. List Book\n2. Checkout Movie\n3. Login\n4. Exit\n", menu.invalidMenu());
+        assertEquals("1. List Book\n2. Checkout Movie\n3. Login\n4. Exit\n", menu.toString());
     }
 
     @Test
@@ -32,9 +32,9 @@ public class MenuTest {
         customerMenu.add("3. Checkin Book");
         customerMenu.add("4. Exit");
         customerMenu.add("5. LogoutOption");
-        Menu menu = new Menu(invalidMenu, customerMenu, librarian);
+        Menu menu = new Menu(customerMenu);
 
-        assertEquals("1. List Book\n2. Checkout Book\n3. Checkin Book\n4. Exit\n5. LogoutOption\n", menu.customerMenu());
+        assertEquals("1. List Book\n2. Checkout Book\n3. Checkin Book\n4. Exit\n5. LogoutOption\n", menu.toString());
     }
 
     @Test
@@ -48,8 +48,8 @@ public class MenuTest {
         librarian.add("4. Checkout Movie");
         librarian.add("5. Exit");
         librarian.add("6. LogoutOption");
-        Menu menu = new Menu(invalidMenu, customerMenu, librarian);
+        Menu menu = new Menu(librarian);
 
-        assertEquals("1. List Book\n2. Checkout Book\n3. Checkin Book\n4. Checkout Movie\n5. Exit\n6. LogoutOption\n", menu.librarianMenu());
+        assertEquals("1. List Book\n2. Checkout Book\n3. Checkin Book\n4. Checkout Movie\n5. Exit\n6. LogoutOption\n", menu.toString());
     }
 }
