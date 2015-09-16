@@ -13,6 +13,7 @@ public class BookDetailsOption implements Options{
     @Override
     public String execute() {
         String bookDetails;
-        return "";
+        bookDetails = library.bookDetails();
+        return bookDetails;
     }
 }

@@ -11,7 +11,7 @@ public class LogoutOption implements Options{
     @Override
     public String execute() {
         session.setUser(getNewUser());
-        return "Thank You!";
+        return "Thank You!\n";
     }
 
      User getNewUser() {

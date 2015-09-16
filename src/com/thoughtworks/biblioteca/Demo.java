@@ -38,7 +38,7 @@ public class Demo {
         librarianItems.add("5. List Movie");
         librarianItems.add("6. Checkout Movie");
         librarianItems.add("8. Logout");
-        librarianItems.add("9. User details");
+        librarianItems.add("9. Book details");
 
         Menu menu = new Menu(defaultItems, customerItems, librarianItems);
         Library library = new Library(books, movies);

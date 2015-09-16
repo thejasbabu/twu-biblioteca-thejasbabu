@@ -14,7 +14,7 @@ public class LogoutOptionTest {
         Session session = mock(Session.class);
         LogoutOption logoutOption = new LogoutOption(session);
 
-        assertEquals("Thank You!", logoutOption.execute());
+        assertEquals("Thank You!\n", logoutOption.execute());
     }
 
     @Test
