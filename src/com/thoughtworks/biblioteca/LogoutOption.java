@@ -10,8 +10,12 @@ public class LogoutOption implements Options{
 
     @Override
     public String execute() {
-        User user = new User("XXX", "XXX", User.Role.INVALID);
-        session.setUser(user);
+        session.setUser(getNewUser());
         return "Thank You!";
+    }
+
+     User getNewUser() {
+        User user = new User("XXX", "XXX", User.Role.INVALID);
+        return user;
     }
 }
