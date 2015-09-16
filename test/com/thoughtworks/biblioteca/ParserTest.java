@@ -122,4 +122,18 @@ public class ParserTest {
 
         assertEquals(BookDetailsOption.class, parser.parse("9").getClass());
     }
+
+    @Test
+    public void shouldReturnInvalidOptionWhenOtherUserSelectsOptionNine() {
+        Display display = new Display(new PrintStream(System.out));
+        ArrayList<Book> books = new ArrayList<Book>();
+        ArrayList<Movie> movies = new ArrayList<Movie>();
+        Library library = new Library(books, movies);
+        Input input = new Input(new Scanner(System.in));
+        UserAccount userAccount = mock(UserAccount.class);
+        Session session = new Session(new User("123-3333", "blah", User.Role.CUSTOMER));
+        Parser parser = new Parser(display, library, input, userAccount, session);
+
+        assertEquals(InvalidOption.class, parser.parse("9").getClass());
+    }
 }
