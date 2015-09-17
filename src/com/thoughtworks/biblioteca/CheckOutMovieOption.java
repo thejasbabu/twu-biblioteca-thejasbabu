@@ -7,13 +7,11 @@ public class CheckOutMovieOption implements Options{
     private Library library;
     private Input input;
     private Display display;
-    private Session session;
 
-    public CheckOutMovieOption(Library library, Input input, Display display, Session session) {
+    public CheckOutMovieOption(Library library, Input input, Display display) {
         this.library = library;
         this.input = input;
         this.display = display;
-        this.session = session;
     }
 
     @Override

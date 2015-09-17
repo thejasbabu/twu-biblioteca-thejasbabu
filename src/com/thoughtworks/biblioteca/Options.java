@@ -3,6 +3,5 @@ package com.thoughtworks.biblioteca;
 
 public interface Options {
 
- public String execute();
-
+  String execute();
 }

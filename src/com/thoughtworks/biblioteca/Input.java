@@ -1,4 +1,4 @@
-//Input class should read input from the user
+//Input class reads input and returns it.
 package com.thoughtworks.biblioteca;
 
 import java.util.Scanner;

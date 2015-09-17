@@ -128,38 +128,38 @@ public class BibliotecaTest {
     }
 
     @Test
-    public void shouldExecuteCheckOutOptionWhenUserEntersTwoAsTheirChoice() {
+    public void shouldExecuteListBookOptionWhenUserEntersOneAsTheirChoice() {
         Menu menu = mock(Menu.class);
         Display display = mock(Display.class);
         Input input = mock(Input.class);
         Parser parser = mock(Parser.class);
         MenuFactory menuFactory = new MenuFactory();
-        CheckOutBookOption checkOutBookOption = mock(CheckOutBookOption.class);
+        ListBookOption listBookOption = mock(ListBookOption.class);
         Session session = new Session(new User("123-333", "blah", User.Role.INVALID, "Osbourne", "Os@gmail.com", "099899"));
         Biblioteca biblioteca = new Biblioteca(display, input, parser, menuFactory, session);
 
-        when(input.read()).thenReturn("2");
-        when(parser.parse("2")).thenReturn(checkOutBookOption);
+        when(input.read()).thenReturn("1");
+        when(parser.parse("1")).thenReturn(listBookOption);
         biblioteca.run();
 
-        verify(checkOutBookOption).execute();
+        verify(listBookOption).execute();
     }
 
     @Test
-    public void shouldExecuteCheckInOptionWhenUserEntersThreeAsTheirChoice() {
+    public void shouldExecuteListMovieOptionWhenUserEntersSixAsTheirChoice() {
         Menu menu = mock(Menu.class);
         Display display = mock(Display.class);
         Input input = mock(Input.class);
         Parser parser = mock(Parser.class);
         MenuFactory menuFactory = new MenuFactory();
-        ReturnBookOption returnBookOption = mock(ReturnBookOption.class);
+        MovieListOption movieListOption = mock(MovieListOption.class);
         Session session = new Session(new User("123-333", "blah", User.Role.INVALID, "Osbourne", "Os@gmail.com", "099899"));
         Biblioteca biblioteca = new Biblioteca(display, input, parser, menuFactory, session);
 
-        when(input.read()).thenReturn("3");
-        when(parser.parse("3")).thenReturn(returnBookOption);
+        when(input.read()).thenReturn("6");
+        when(parser.parse("6")).thenReturn(movieListOption);
         biblioteca.run();
 
-        verify(returnBookOption).execute();
+        verify(movieListOption).execute();
     }
 }

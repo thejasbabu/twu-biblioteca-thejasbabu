@@ -1,13 +1,11 @@
-// BookDetailsOption class returns book details
+// BookDetailsOption class calls the bookdetails method of library and returns book details
 package com.thoughtworks.biblioteca;
 
 public class BookDetailsOption implements Options{
 
-    private Session session;
     private Library library;
 
-    public BookDetailsOption(Session session, Library library) {
-        this.session = session;
+    public BookDetailsOption(Library library) {
         this.library = library;
     }
 

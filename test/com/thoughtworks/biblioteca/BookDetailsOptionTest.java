@@ -11,9 +11,8 @@ public class BookDetailsOptionTest {
     @Test
     public void shouldCallTheBookDetailsMethodOfLibrary() {
         Library library = mock(Library.class);
-        Session session = mock(Session.class);
 
-        BookDetailsOption bookDetailsOption = new BookDetailsOption(session, library);
+        BookDetailsOption bookDetailsOption = new BookDetailsOption(library);
         bookDetailsOption.execute();
 
         verify(library).bookDetails();

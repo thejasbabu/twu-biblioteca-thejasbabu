@@ -1,3 +1,4 @@
+// Menu factory will generate the appropriate menu
 package com.thoughtworks.biblioteca;
 
 import java.util.ArrayList;

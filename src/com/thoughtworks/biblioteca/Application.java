@@ -1,4 +1,4 @@
-// Demo class starts the Biblioteca application.
+// Application class starts the Biblioteca application.
 package com.thoughtworks.biblioteca;
 
 import java.io.PrintStream;

@@ -1,4 +1,4 @@
-// CheckOutOption class calls the neccessary method of library class and return appropriate message back.
+// CheckOutBookOption class calls the checkoutBook method of library class and return appropriate message back.
 package com.thoughtworks.biblioteca;
 
 public class CheckOutBookOption implements Options {

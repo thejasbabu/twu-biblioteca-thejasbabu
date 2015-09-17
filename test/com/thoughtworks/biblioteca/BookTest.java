@@ -28,4 +28,12 @@ public class BookTest {
 
         assertEquals(bookOne, bookTwo);
     }
+
+    @Test
+    public void shouldHaveTheSameHashCode() {
+        Book bookOne = new Book("Inferno", "Dan Brown", "2001");
+        Book bookTwo = new Book("Inferno", "Dan Crown", "2001");
+
+        assertEquals(bookOne.hashCode(), bookTwo.hashCode());
+    }
 }

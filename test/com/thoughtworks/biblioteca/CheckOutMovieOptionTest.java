@@ -15,8 +15,7 @@ public class CheckOutMovieOptionTest {
         Display display = new Display(new PrintStream(System.out));
         Input input = mock(Input.class);
         Library library = mock(Library.class);
-        Session session = mock(Session.class);
-        CheckOutMovieOption checkOutMovieOption = new CheckOutMovieOption(library, input, display, session);
+        CheckOutMovieOption checkOutMovieOption = new CheckOutMovieOption(library, input, display);
 
         when(input.read()).thenReturn("Interstellar");
         when(library.checkOutMovie("Interstellar")).thenReturn(true);
@@ -29,8 +28,7 @@ public class CheckOutMovieOptionTest {
         Display display = new Display(new PrintStream(System.out));
         Input input = mock(Input.class);
         Library library = mock(Library.class);
-        Session session = mock(Session.class);
-        CheckOutMovieOption checkOutMovieOption = new CheckOutMovieOption(library, input, display, session);
+        CheckOutMovieOption checkOutMovieOption = new CheckOutMovieOption(library, input, display);
 
         when(input.read()).thenReturn("Interstellar");
         when(library.checkOutMovie("Interstellar")).thenReturn(false);

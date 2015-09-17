@@ -9,7 +9,6 @@ public class Biblioteca {
     private MenuFactory menuFactory;
     private Session session;
 
-
     public Biblioteca(Display display, Input input, Parser parser, MenuFactory menuFactory, Session session) {
         this.display = display;
         this.input = input;

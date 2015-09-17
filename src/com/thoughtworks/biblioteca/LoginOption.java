@@ -1,4 +1,4 @@
-// Login class executes the authentication of user
+// Login class executes the authenticate method of userAccount and returns the appropriate message
 package com.thoughtworks.biblioteca;
 
 public class LoginOption implements Options{

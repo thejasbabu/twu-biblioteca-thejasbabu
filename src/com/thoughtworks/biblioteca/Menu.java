@@ -6,8 +6,6 @@ import java.util.ArrayList;
 public class Menu {
     private ArrayList<String> menuItems;
 
-
-
     public Menu(ArrayList<String> menuItems) {
         this.menuItems = menuItems;
     }
