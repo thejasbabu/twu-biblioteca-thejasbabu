@@ -55,7 +55,7 @@ public class UserTest {
     @Test
     public void shouldReturnDetailsOfUser() {
         User user = new User("LIB-1233", "Phew123", User.Role.CUSTOMER, "Ozzy", "Ozzy@gmail.com", "998898");
-        String userDetails = String.format("%-40s%-40s%-40s%-40s\n", "LIB-1233", "Ozzy", "Ozzy@gmail.com", "998898");
+        String userDetails = String.format("%-20s%-20s%-20s%-20s\n", "LIB-1233", "Ozzy", "Ozzy@gmail.com", "998898");
 
         assertEquals(userDetails, user.userDetails());
     }
@@ -65,5 +65,14 @@ public class UserTest {
         User user = new User("LIB-1233", "Phew123", User.Role.CUSTOMER, "Ozzy", "Ozzy@gmail.com", "998898");
 
         assertEquals(false, user.equals(null));
+    }
+
+    @Test
+    public void shouldReturnLibraryNumberAndPhoneNumberSoTheLibrarianCanContact() {
+        User user = new User("LIB-1233", "Phew123", User.Role.CUSTOMER, "Ozzy", "Ozzy@gmail.com", "998898");
+
+        String userDetails = String.format("%-20s%-20s%-20s", "LIB-1233", "Ozzy", "998898");
+
+        assertEquals(userDetails, user.toString());
     }
 }

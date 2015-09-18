@@ -16,8 +16,8 @@ public class LibraryTest {
         books.add(new Book("Inferno", "Dan Brown", "2001"));
         Library library = new Library(books, movies);
 
-        String header = String.format("%-40s%-40s%-40s\n","NAME", "AUTHOR", "YEAR");
-        String bookList = String.format("%-40s%-40s%-40s\n","Inferno", "Dan Brown", "2001");
+        String header = String.format("%-20s%-20s%-20s\n","NAME", "AUTHOR", "YEAR");
+        String bookList = String.format("%-20s%-20s%-20s\n","Inferno", "Dan Brown", "2001");
         assertEquals(header+bookList, library.bookList());
     }
 
@@ -74,11 +74,11 @@ public class LibraryTest {
     public void shouldReturnListOfMoviesInLibrary() {
         ArrayList<Book> books = new ArrayList<Book>();
         ArrayList<Movie> movies = new ArrayList<Movie>();
-        movies.add(new Movie("The Good, The Bad and The Ugly", "Sergio Leone", "1966", "8.9"));
+        movies.add(new Movie("Interstellar", "Sergio Leone", "1966", "8.9"));
         Library library = new Library(books, movies);
 
-        String header = String.format("%-40s%-40s%-40s%-40s\n", "NAME", "DIRECTOR", "YEAR", "RATING");
-        String movieList = String.format("%-40s%-40s%-40s%-40s\n", "The Good, The Bad and The Ugly", "Sergio Leone", "1966", "8.9");
+        String header = String.format("%-20s%-20s%-20s%-20s\n", "NAME", "DIRECTOR", "YEAR", "RATING");
+        String movieList = String.format("%-20s%-20s%-20s%-20s\n", "Interstellar", "Sergio Leone", "1966", "8.9");
 
         assertEquals(header + movieList, library.movieList());
     }
@@ -114,8 +114,9 @@ public class LibraryTest {
         Session session = new Session(user);
         library.checkOutBook("Inferno", session);
 
-        String header = String.format("%-20s%-40s%-40s%-40s\n", "LIB-NUMBER", "NAME", "AUTHOR", "YEAR");
-        String line = String.format("%-20s%-40s%-40s%-40s\n","123-3333", "Inferno", "Dan Brown", "2001");
+        String header = String.format("%-20s%-20s%-20s%-20s%-20s%-20s\n", "LIB-NUMBER", "CUSTOMER NAME", "PHONE", "BOOK-" +
+                "NAME", "AUTHOR", "YEAR");
+        String line = String.format("%-20s%-20s%-20s%-20s%-20s%-20s\n","123-3333", "Osbourne", "099899", "Inferno", "Dan Brown", "2001");
         assertEquals(header + line, library.bookDetails());
     }
 }

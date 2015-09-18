@@ -8,9 +8,9 @@ public class MovieTest {
 
     @Test
     public void shouldReturnBookInColumnarFashion() {
-        Movie movie = new Movie("The Good,The Bad and The Ugly", "1966", "Sergio Leone", "8.9");
+        Movie movie = new Movie("Interstellar", "1966", "Sergio Leone", "8.9");
 
-        String movieList = String.format("%-40s%-40s%-40s%-40s\n","The Good,The Bad and The Ugly", "1966", "Sergio Leone", "8.9");
+        String movieList = String.format("%-20s%-20s%-20s%-20s\n","Interstellar", "1966", "Sergio Leone", "8.9");
         assertEquals(movieList, movie.toString());
     }
 

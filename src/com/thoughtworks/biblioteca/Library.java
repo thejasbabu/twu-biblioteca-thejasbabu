@@ -17,7 +17,7 @@ public class Library {
 
     public String bookList() {
         StringBuilder stringBuilder = new StringBuilder();
-        String header = String.format("%-40s%-40s%-40s\n", "NAME", "AUTHOR", "YEAR");
+        String header = String.format("%-20s%-20s%-20s\n", "NAME", "AUTHOR", "YEAR");
         stringBuilder.append(header);
         for(Book book : availableBooks)
             stringBuilder.append(book.toString());
@@ -51,7 +51,7 @@ public class Library {
 
     public String movieList() {
         StringBuilder stringBuilder = new StringBuilder();
-        String header = String.format("%-40s%-40s%-40s%-40s\n", "NAME", "DIRECTOR", "YEAR", "RATING");
+        String header = String.format("%-20s%-20s%-20s%-20s\n", "NAME", "DIRECTOR", "YEAR", "RATING");
         stringBuilder.append(header);
         for(Movie movie : availableMovies) {
             stringBuilder.append(movie.toString());
@@ -72,7 +72,7 @@ public class Library {
 
     public String bookDetails() {
         StringBuilder bookDetails = new StringBuilder();
-        String header = String.format("%-20s%-40s%-40s%-40s\n","LIB-NUMBER", "NAME", "AUTHOR", "YEAR");
+        String header = String.format("%-20s%-20s%-20s%-20s%-20s%-20s\n","LIB-NUMBER", "CUSTOMER NAME", "PHONE", "BOOK-NAME", "AUTHOR", "YEAR");
         bookDetails.append(header);
         for(Book book : checkedOutBooks.keySet()) {
             String userNumber = checkedOutBooks.get(book).toString();

@@ -56,6 +56,7 @@ public class BibliotecaTest {
         menuList.add("6. Checkout Movie");
         menuList.add("8. Logout");
         menuList.add("9. Book details");
+        menuList.add("10. User Details");
         Menu menu = new Menu(menuList);
         when(input.read()).thenReturn("1");
         when(parser.parse("1")).thenReturn(listBookOption);

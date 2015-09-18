@@ -21,21 +21,22 @@ public class User {
     }
 
     public String userDetails() {
-        String userDetails = String.format("%-40s%-40s%-40s%-40s\n", libraryNumber, userName, email, phoneNumber);
+        String userDetails = String.format("%-20s%-20s%-20s%-20s\n", libraryNumber, userName, email, phoneNumber);
         return userDetails;
     }
 
     @Override
     public String toString() {
-        return this.libraryNumber;
+        String details = String.format("%-20s%-20s%-20s", this.libraryNumber, this.userName, this.phoneNumber);
+        return details;
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+    public boolean equals(Object thatUser) {
+        if (this == thatUser) return true;
+        if (thatUser == null || getClass() != thatUser.getClass()) return false;
 
-        User user = (User) o;
+        User user = (User) thatUser;
 
         return !(libraryNumber != null ? !libraryNumber.equals(user.libraryNumber) : user.libraryNumber != null);
     }

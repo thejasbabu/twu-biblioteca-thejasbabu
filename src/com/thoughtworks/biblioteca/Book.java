@@ -14,7 +14,7 @@ public class Book {
 
     @Override
     public String toString() {
-        String book = String.format("%-40s%-40s%-40s\n",name,author,year);;
+        String book = String.format("%-20s%-20s%-20s\n",name,author,year);;
         return book;
     }
 

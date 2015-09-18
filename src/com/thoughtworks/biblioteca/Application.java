@@ -17,7 +17,8 @@ public class Application {
         Input input = new Input(new Scanner(System.in));
         ArrayList<Book> books = new ArrayList<Book>();
         ArrayList<Movie> movies = new ArrayList<Movie>();
-        movies.add(new Movie("The Good, The Bad and The Ugly", "Sergio Leone", "1966", "8.9"));
+        movies.add(new Movie("Interstellar", "Nolan", "2015", "9.2"));
+        movies.add(new Movie("Matrix", "Andie", "2001", "8.9"));
         books.add(new Book("Inferno", "Dan Brown", "2001"));
         books.add(new Book("Next", "M. Crichton", "2005"));
         books.add(new Book("Harry Potter", "JK Rowling", "2004"));
