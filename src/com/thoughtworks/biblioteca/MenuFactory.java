@@ -38,7 +38,7 @@ public class MenuFactory {
             menuList.add("6. Checkout Movie");
             menuList.add("8. Logout");
             menuList.add("9. Book details");
-
+            menuList.add("10. User Details");
             Menu menu = new Menu(menuList);
             return menu;
         }
