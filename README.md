@@ -1,6 +1,6 @@
 
 ##Description
-Model a Library Management System
+Models a Library which lists all movies and books present in library and allow users to checkout or return books. 
 
 ##Dependencies
 * JDK(1.6 or higher)
@@ -37,3 +37,8 @@ Model a Library Management System
 1. Set present working directory to Project directory.
 2. Run the following Method
 > ant
+
+##Steps to Run:
+
+1.Run the following command
+> ant run
