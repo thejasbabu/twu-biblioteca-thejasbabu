@@ -36,9 +36,9 @@ Models a Library which lists all movies and books present in library and allow u
 
 1. Set present working directory to Project directory.
 2. Run the following Method
-> ant
+     > ant
 
 ##Steps to Run:
 
 1.Run the following command
-> ant run
+     > ant run

@@ -30,13 +30,13 @@ public class Parser {
             return new MovieListOption(library);
         else if(option.equals("6"))
             return new CheckOutMovieOption(library, input, display);
-        else if(option.equals("7"))
+        else if(option.equals("7") && !ruleCheck())
             return new LoginOption(userAccount, input, display, session);
         else if(option.equals("8") && ruleCheck())
             return new LogoutOption(session);
         else if(option.equals("9") && (session.getUser().getRole().equals(User.Role.LIBRARIAN)))
             return new BookDetailsOption(library);
-        else if(option.equals("10") && (session.getUser().getRole().equals(User.Role.CUSTOMER)))
+        else if(option.equals("10") && ruleCheck())
             return new UserDetailsOption(session.getUser());
         else
             return new InvalidOption();
