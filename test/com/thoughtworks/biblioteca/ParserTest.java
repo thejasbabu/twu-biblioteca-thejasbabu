@@ -36,11 +36,11 @@ public class ParserTest {
         Session session = new Session(new User("123-3333", "blah", User.Role.CUSTOMER, "Osbourne", "Os@gmail.com", "099899"));
         Parser parser = new Parser(display, library, input, userAccount, session);
 
-        assertEquals(ExitOption.class, parser.parse("4").getClass());
+        assertEquals(ExitOption.class, parser.parse("0").getClass());
     }
 
     @Test
-    public void shouldReturnMovieListWhenUserEntersFive() {
+    public void shouldReturnMovieListWhenUserSelectsMovieListOption() {
         Display display = new Display(new PrintStream(System.out));
         ArrayList<Book> books = new ArrayList<Book>();
         ArrayList<Movie> movies = new ArrayList<Movie>();
@@ -50,11 +50,11 @@ public class ParserTest {
         Session session = mock(Session.class);
         Parser parser = new Parser(display, library, input, userAccount, session);
 
-        assertEquals(MovieListOption.class, parser.parse("5").getClass());
+        assertEquals(MovieListOption.class, parser.parse("2").getClass());
     }
 
     @Test
-    public void shouldReturnCheckOutMovieOptionObjectWhenUserEntersSix() {
+    public void shouldReturnCheckOutMovieOptionObjectWhenUserSelectsMovieCheckoutOption() {
         Display display = new Display(new PrintStream(System.out));
         ArrayList<Book> books = new ArrayList<Book>();
         ArrayList<Movie> movies = new ArrayList<Movie>();
@@ -64,11 +64,11 @@ public class ParserTest {
         Session session = mock(Session.class);
         Parser parser = new Parser(display, library, input, userAccount, session);
 
-        assertEquals(CheckOutMovieOption.class, parser.parse("6").getClass());
+        assertEquals(CheckOutMovieOption.class, parser.parse("3").getClass());
     }
 
     @Test
-    public void shouldReturnInvalidOptionObjectWhenCheckoutOptionIsCalledWithoutLogin() {
+    public void shouldReturnInvalidOptionObjectWhenCheckoutBookOptionIsCalledWithoutLogin() {
         Display display = new Display(new PrintStream(System.out));
         ArrayList<Book> books = new ArrayList<Book>();
         ArrayList<Movie> movies = new ArrayList<Movie>();
@@ -78,11 +78,11 @@ public class ParserTest {
         Session session = new Session(new User("123-3333", "blah", User.Role.INVALID, "Osbourne", "Os@gmail.com", "099899"));
         Parser parser = new Parser(display, library, input, userAccount, session);
 
-        assertEquals(InvalidOption.class, parser.parse("2").getClass());
+        assertEquals(InvalidOption.class, parser.parse("4").getClass());
     }
 
     @Test
-    public void shouldReturnInvalidOptionObjectWhenCheckInOptionIsCalledWithoutLogin() {
+    public void shouldReturnInvalidOptionObjectWhenCheckInBookOptionIsCalledWithoutLogin() {
         Display display = new Display(new PrintStream(System.out));
         ArrayList<Book> books = new ArrayList<Book>();
         ArrayList<Movie> movies = new ArrayList<Movie>();
@@ -92,7 +92,7 @@ public class ParserTest {
         Session session = new Session(new User("123-3333", "blah", User.Role.INVALID, "Osbourne", "Os@gmail.com", "099899"));
         Parser parser = new Parser(display, library, input, userAccount, session);
 
-        assertEquals(InvalidOption.class, parser.parse("3").getClass());
+        assertEquals(InvalidOption.class, parser.parse("5").getClass());
     }
 
     @Test
@@ -106,11 +106,11 @@ public class ParserTest {
         Session session = new Session(new User("123-3333", "blah", User.Role.CUSTOMER, "Osbourne", "Os@gmail.com", "099899"));
         Parser parser = new Parser(display, library, input, userAccount, session);
 
-        assertEquals(LogoutOption.class, parser.parse("8").getClass());
+        assertEquals(LogoutOption.class, parser.parse("9").getClass());
     }
 
     @Test
-    public void shouldReturnBookDetailsOptionWhenLibrarianSelectsOptionNine() {
+    public void shouldReturnBookDetailsOptionWhenLibrarianSelectsBookDetailsOption() {
         Display display = new Display(new PrintStream(System.out));
         ArrayList<Book> books = new ArrayList<Book>();
         ArrayList<Movie> movies = new ArrayList<Movie>();
@@ -120,11 +120,11 @@ public class ParserTest {
         Session session = new Session(new User("123-3333", "blah", User.Role.LIBRARIAN, "Osbourne", "Os@gmail.com", "099899"));
         Parser parser = new Parser(display, library, input, userAccount, session);
 
-        assertEquals(BookDetailsOption.class, parser.parse("9").getClass());
+        assertEquals(BookDetailsOption.class, parser.parse("7").getClass());
     }
 
     @Test
-    public void shouldReturnInvalidOptionWhenOtherUserSelectsOptionNine() {
+    public void shouldReturnInvalidOptionWhenOtherUserSelectsBookDetailsOption() {
         Display display = new Display(new PrintStream(System.out));
         ArrayList<Book> books = new ArrayList<Book>();
         ArrayList<Movie> movies = new ArrayList<Movie>();
@@ -134,11 +134,11 @@ public class ParserTest {
         Session session = new Session(new User("123-3333", "blah", User.Role.CUSTOMER, "Osbourne", "Os@gmail.com", "099899"));
         Parser parser = new Parser(display, library, input, userAccount, session);
 
-        assertEquals(InvalidOption.class, parser.parse("9").getClass());
+        assertEquals(InvalidOption.class, parser.parse("7").getClass());
     }
 
     @Test
-    public void shouldReturnBookListOptionWhenUserSelectsOptionOne() {
+    public void shouldReturnBookListOptionWhenUserSelectsBookListOption() {
         Display display = new Display(new PrintStream(System.out));
         ArrayList<Book> books = new ArrayList<Book>();
         ArrayList<Movie> movies = new ArrayList<Movie>();
@@ -152,7 +152,7 @@ public class ParserTest {
     }
 
     @Test
-    public void shouldReturnUserDetailsObjectWhenUserSelectsOptionTen() {
+    public void shouldReturnUserDetailsObjectWhenUserSelectsUserDetailsOption() {
         Display display = new Display(new PrintStream(System.out));
         ArrayList<Book> books = new ArrayList<Book>();
         ArrayList<Movie> movies = new ArrayList<Movie>();
@@ -162,11 +162,11 @@ public class ParserTest {
         Session session = new Session(new User("123-3333", "blah", User.Role.CUSTOMER, "Ozzy", "Ozzy@Gmail.com", "99980"));
         Parser parser = new Parser(display, library, input, userAccount, session);
 
-        assertEquals(UserDetailsOption.class, parser.parse("10").getClass());
+        assertEquals(UserDetailsOption.class, parser.parse("6").getClass());
     }
 
     @Test
-    public void shouldReturnLoginOptionObjectWhenUserSelectsOptionSeven() {
+    public void shouldReturnLoginOptionObjectWhenUserSelectsLoginOption() {
         Display display = new Display(new PrintStream(System.out));
         ArrayList<Book> books = new ArrayList<Book>();
         ArrayList<Movie> movies = new ArrayList<Movie>();
@@ -176,6 +176,6 @@ public class ParserTest {
         Session session = new Session(new User("123-3333", "blah", User.Role.INVALID, "Ozzy", "Ozzy@Gmail.com", "99980"));
         Parser parser = new Parser(display, library, input, userAccount, session);
 
-        assertEquals(LoginOption.class, parser.parse("7").getClass());
+        assertEquals(LoginOption.class, parser.parse("8").getClass());
     }
 }

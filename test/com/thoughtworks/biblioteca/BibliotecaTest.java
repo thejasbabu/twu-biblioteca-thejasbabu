@@ -24,13 +24,13 @@ public class BibliotecaTest {
         when(listBookOption.execute()).thenReturn("listBookOption Called");
         ArrayList<String> menuList = new ArrayList<String>();
         menuList.add("1. List Book");
-        menuList.add("2. Checkout Book");
-        menuList.add("3. Return Book");
-        menuList.add("4. Exit");
-        menuList.add("5. List Movie");
-        menuList.add("6. Checkout Movie");
-        menuList.add("8. Logout");
-        menuList.add("10. User Details");
+        menuList.add("2. List Movie");
+        menuList.add("3. Checkout Movie");
+        menuList.add("4. Checkout Book");
+        menuList.add("5. Return Book");
+        menuList.add("6. User Details");
+        menuList.add("9. Logout");
+        menuList.add("0. Exit");
         Menu menu = new Menu(menuList);
         biblioteca.run();
 
@@ -49,14 +49,14 @@ public class BibliotecaTest {
 
         ArrayList<String> menuList = new ArrayList<String>();
         menuList.add("1. List Book");
-        menuList.add("2. Checkout Book");
-        menuList.add("3. Return Book");
-        menuList.add("4. Exit");
-        menuList.add("5. List Movie");
-        menuList.add("6. Checkout Movie");
-        menuList.add("8. Logout");
-        menuList.add("9. Book details");
-        menuList.add("10. User Details");
+        menuList.add("2. List Movie");
+        menuList.add("3. Checkout Movie");
+        menuList.add("4. Checkout Book");
+        menuList.add("5. Return Book");
+        menuList.add("6. User Details");
+        menuList.add("7. Book details");
+        menuList.add("9. Logout");
+        menuList.add("0. Exit");
         Menu menu = new Menu(menuList);
         when(input.read()).thenReturn("1");
         when(parser.parse("1")).thenReturn(listBookOption);
@@ -81,10 +81,10 @@ public class BibliotecaTest {
         when(listBookOption.execute()).thenReturn("List Book Option");
         ArrayList<String> menuList = new ArrayList<String>();
         menuList.add("1. List Book");
-        menuList.add("4. Exit");
-        menuList.add("5. List Movie");
-        menuList.add("6. Checkout Movie");
-        menuList.add("7. Login");
+        menuList.add("2. List Movie");
+        menuList.add("3. Checkout Movie");
+        menuList.add("8. Login");
+        menuList.add("0. Exit");
         Menu menu = new Menu(menuList);
         biblioteca.run();
 
@@ -121,8 +121,8 @@ public class BibliotecaTest {
         Session session = new Session(new User("123-333", "blah", User.Role.INVALID, "Osbourne", "Os@gmail.com", "099899"));
         Biblioteca biblioteca = new Biblioteca(display, input, parser, menuFactory, session);
 
-        when(input.read()).thenReturn("4");
-        when(parser.parse("4")).thenReturn(exitOption);
+        when(input.read()).thenReturn("0");
+        when(parser.parse("0")).thenReturn(exitOption);
         biblioteca.run();
 
         verify(exitOption).execute();
@@ -147,7 +147,7 @@ public class BibliotecaTest {
     }
 
     @Test
-    public void shouldExecuteListMovieOptionWhenUserEntersSixAsTheirChoice() {
+    public void shouldExecuteListMovieOptionWhenUserSelectsMovieListOption() {
         Menu menu = mock(Menu.class);
         Display display = mock(Display.class);
         Input input = mock(Input.class);
@@ -157,8 +157,8 @@ public class BibliotecaTest {
         Session session = new Session(new User("123-333", "blah", User.Role.INVALID, "Osbourne", "Os@gmail.com", "099899"));
         Biblioteca biblioteca = new Biblioteca(display, input, parser, menuFactory, session);
 
-        when(input.read()).thenReturn("6");
-        when(parser.parse("6")).thenReturn(movieListOption);
+        when(input.read()).thenReturn("2");
+        when(parser.parse("2")).thenReturn(movieListOption);
         biblioteca.run();
 
         verify(movieListOption).execute();
