@@ -13,10 +13,10 @@ public class MenuFactoryTest {
         MenuFactory menuFactory = new MenuFactory();
         ArrayList<String> menuList = new ArrayList<String>();
         menuList.add("1. List Book");
-        menuList.add("4. Exit");
-        menuList.add("5. List Movie");
-        menuList.add("6. Checkout Movie");
-        menuList.add("7. Login");
+        menuList.add("2. List Movie");
+        menuList.add("3. Checkout Movie");
+        menuList.add("8. Login");
+        menuList.add("0. Exit");
         Menu menu = new Menu(menuList);
 
         assertEquals(menu.toString(), menuFactory.getMenu(User.Role.INVALID).toString());
@@ -27,13 +27,13 @@ public class MenuFactoryTest {
         MenuFactory menuFactory = new MenuFactory();
         ArrayList<String> menuList = new ArrayList<String>();
         menuList.add("1. List Book");
-        menuList.add("2. Checkout Book");
-        menuList.add("3. Return Book");
-        menuList.add("4. Exit");
-        menuList.add("5. List Movie");
-        menuList.add("6. Checkout Movie");
-        menuList.add("8. Logout");
-        menuList.add("10. User Details");
+        menuList.add("2. List Movie");
+        menuList.add("3. Checkout Movie");
+        menuList.add("4. Checkout Book");
+        menuList.add("5. Return Book");
+        menuList.add("6. User Details");
+        menuList.add("9. Logout");
+        menuList.add("0. Exit");
         Menu menu = new Menu(menuList);
 
         assertEquals(menu.toString(), menuFactory.getMenu(User.Role.CUSTOMER).toString());
@@ -44,14 +44,14 @@ public class MenuFactoryTest {
         MenuFactory menuFactory = new MenuFactory();
         ArrayList<String> menuList = new ArrayList<String>();
         menuList.add("1. List Book");
-        menuList.add("2. Checkout Book");
-        menuList.add("3. Return Book");
-        menuList.add("4. Exit");
-        menuList.add("5. List Movie");
-        menuList.add("6. Checkout Movie");
-        menuList.add("8. Logout");
-        menuList.add("9. Book details");
-        menuList.add("10. User Details");
+        menuList.add("2. List Movie");
+        menuList.add("3. Checkout Movie");
+        menuList.add("4. Checkout Book");
+        menuList.add("5. Return Book");
+        menuList.add("6. User Details");
+        menuList.add("7. Book details");
+        menuList.add("9. Logout");
+        menuList.add("0. Exit");
         Menu menu = new Menu(menuList);
 
         assertEquals(menu.toString(), menuFactory.getMenu(User.Role.LIBRARIAN).toString());
