@@ -13,4 +13,14 @@ public class SessionTest {
 
         assertEquals(user, session.getUser());
     }
+
+    @Test
+    public void shouldSetTheUserForTheSession() {
+        User user = new User("123-1234", "Bleh", User.Role.CUSTOMER, "Osbourne", "Os@gmail.com", "099899");
+        Session session = new Session(user);
+
+        session.setUser(user);
+
+        assertEquals(user, session.getUser());
+    }
 }

@@ -59,4 +59,11 @@ public class UserTest {
 
         assertEquals(userDetails, user.userDetails());
     }
+
+    @Test
+    public void shouldReturnFalseWhenUserIsComparedToNull() {
+        User user = new User("LIB-1233", "Phew123", User.Role.CUSTOMER, "Ozzy", "Ozzy@gmail.com", "998898");
+
+        assertEquals(false, user.equals(null));
+    }
 }
